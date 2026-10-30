@@ -1,0 +1,80 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Paw-dventurous"
+config/description="Game #8 in the Problem 18 challenge. A Crash Bandicoot-inspired game about a dog making their way to get the ultimate snack."
+config/version="0.0.1"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+run/max_fps=360
+config/icon="res://icon.svg"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=2
+
+[display]
+
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/GDQuest_GDScript_formatter/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/log/plugin.cfg", "res://addons/script-ide/plugin.cfg")
+
+[input]
+
+jump={
+"deadzone": 0.2,
+"events": []
+}
+move_left={
+"deadzone": 0.2,
+"events": []
+}
+move_right={
+"deadzone": 0.2,
+"events": []
+}
+move_forward={
+"deadzone": 0.2,
+"events": []
+}
+move_backwards={
+"deadzone": 0.2,
+"events": []
+}
+attack={
+"deadzone": 0.2,
+"events": []
+}
+
+[layer_names]
+
+2d_physics/layer_1="player"
+3d_physics/layer_1="player"
+2d_physics/layer_2="world"
+3d_physics/layer_2="world"
+2d_physics/layer_3="hurtbox"
+3d_physics/layer_3="hurtbox"
+2d_physics/layer_4="hitbox"
+3d_physics/layer_4="hitbox"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

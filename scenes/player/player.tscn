@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://coj7g664wteod"]
+
+[ext_resource type="Script" uid="uid://huptmwg2tii4" path="res://scenes/player/player.gd" id="1_8afob"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1638800477]
+collision_mask = 2
+input_ray_pickable = false
+script = ExtResource("1_8afob")

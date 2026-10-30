@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bni0yp1s2pckh"]
+
+[ext_resource type="Script" uid="uid://ddaedv536jp6s" path="res://core/game/game.gd" id="1_23swt"]
+
+[node name="Game" type="Node" unique_id=838116718]
+process_mode = 3
+script = ExtResource("1_23swt")
+
+[node name="Systems" type="Node" parent="." unique_id=1620987423]
+
+[node name="World" type="Node3D" parent="." unique_id=1825393418]
+process_mode = 1
+
+[node name="LevelRoot" type="Node3D" parent="World" unique_id=393414073]
+unique_name_in_owner = true
+
+[node name="EntityRoot" type="Node3D" parent="World" unique_id=734097300 groups=["entities"]]
+unique_name_in_owner = true
+
+[node name="HUDLayer" type="CanvasLayer" parent="." unique_id=774183403]
+layer = 10
+
+[node name="HUDRoot" type="Control" parent="HUDLayer" unique_id=575381592]
+unique_name_in_owner = true
+process_mode = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=63318267]
+layer = 20
+
+[node name="PauseRoot" type="Control" parent="PauseLayer" unique_id=1320367429]
+unique_name_in_owner = true
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=732158716]
+layer = 30
+
+[node name="TransitionRoot" type="Control" parent="TransitionLayer" unique_id=135547859]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="DebugLayer" type="CanvasLayer" parent="." unique_id=373099362]
+layer = 40
+
+[node name="DebugRoot" type="Control" parent="DebugLayer" unique_id=1817810458]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
