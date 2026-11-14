@@ -15,7 +15,7 @@ func _ready() -> void:
 	_input_buffer_timer.wait_time = buffer_time
 
 
-func _unhandled_key_input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if not event.is_action_pressed(action_name):
 		return
 

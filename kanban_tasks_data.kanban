@@ -10,12 +10,21 @@
 		{
 			"uuid": "eaa0e386-fe39-4799-9d2a-a43397b8cd9d",
 			"title": "Todo",
-			"tasks": []
+			"tasks": [
+				"ff2ac180-b4d9-4d77-9885-94bc113a81b9",
+				"23b77b67-4ba6-4ffb-ad0c-da6e63706bc2",
+				"03713ae0-0a59-4222-bcc2-87b5e1f706c9",
+				"65e02326-fa63-4d47-b058-38376fec3306",
+				"6478e45c-d78e-42c3-83d7-0508fa771d44",
+				"f9ed828c-bbed-4134-8bc1-d9d16b19ca9d"
+			]
 		},
 		{
 			"uuid": "7e6565ca-d0de-4825-aba2-3020d90d1aad",
 			"title": "Doing",
-			"tasks": []
+			"tasks": [
+				"cfa4bf78-4bf6-4cff-9744-d7c483a7cca4"
+			]
 		},
 		{
 			"uuid": "8d19d83f-7fa8-42b9-8677-5fbf70a6b41b",
@@ -23,7 +32,134 @@
 			"tasks": []
 		}
 	],
-	"tasks": [],
+	"tasks": [
+		{
+			"uuid": "06df0587-912e-4ab8-8216-be0969dc79ab",
+			"title": "New task",
+			"description": "",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": []
+		},
+		{
+			"uuid": "cfa4bf78-4bf6-4cff-9744-d7c483a7cca4",
+			"title": "[Feat] Player character",
+			"description": "- Player can jump twice. Second jump is significantly weaker than first. A small shadow should always be visible underneath the player.\n- Attacking hurts enemies, destroys boxes of loot, or push away loot. Attack is a small time window in which anything gets hurt if collided.",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": [
+				{
+					"details": "Idle state",
+					"done": true
+				},
+				{
+					"details": "Walk state",
+					"done": true
+				},
+				{
+					"details": "Air state",
+					"done": true
+				},
+				{
+					"details": "Attack state",
+					"done": false
+				},
+				{
+					"details": "Dead state",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "ff2ac180-b4d9-4d77-9885-94bc113a81b9",
+			"title": "[Feat] Base level",
+			"description": "All levels should adhere to a specific, fixed width.\n\nA level is linear, and long.\n\nA camera should be present in each level, adjustable and accessible by the main game. The camera follows the player, axis Y and X are locked.",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": [
+				{
+					"details": "Camera setup and access",
+					"done": false
+				},
+				{
+					"details": "Settle fixed level width",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "23b77b67-4ba6-4ffb-ad0c-da6e63706bc2",
+			"title": "[Feat] Pickuppables",
+			"description": "A pickuppable is a floating, spinning item that can be picked up by the player by walking through it.\n\nDog treats are an equvalient of coins, better collection results in a level's better result.\n\nTennis balls are special coins (3 per level) that equaly aid a better result.",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": [
+				{
+					"details": "Dog treats",
+					"done": false
+				},
+				{
+					"details": "Tennis balls",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "03713ae0-0a59-4222-bcc2-87b5e1f706c9",
+			"title": "[Feat] Enemies",
+			"description": "Chase enemy is an enemy that wanders around, and when player is close enough, the enemy will approach the player to damage.\n\nPatrol enemy is an enemy that consistently moves between two points, regardless of the player's position.",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": [
+				{
+					"details": "Patrol enemy",
+					"done": false
+				},
+				{
+					"details": "Chase enemy",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "65e02326-fa63-4d47-b058-38376fec3306",
+			"title": "[Feat] Level goal",
+			"description": "Each level's goal is to reach the end. At the end there should be a small platform that the player will be automatically positioned onto when the area is reached. A small celebration will then be displayed before continuing on to the summary.",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": [
+				{
+					"details": "End platform",
+					"done": false
+				},
+				{
+					"details": "Celebratory announcement",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "6478e45c-d78e-42c3-83d7-0508fa771d44",
+			"title": "[Feat] Level summary",
+			"description": "",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": [
+				{
+					"details": "Score display",
+					"done": false
+				},
+				{
+					"details": "Time display",
+					"done": false
+				},
+				{
+					"details": "Continue to next",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "f9ed828c-bbed-4134-8bc1-d9d16b19ca9d",
+			"title": "[Bonus] Vertical level",
+			"description": "",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": []
+		}
+	],
 	"layout": {
 		"columns": [
 			[

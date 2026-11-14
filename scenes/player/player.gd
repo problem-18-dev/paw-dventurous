@@ -7,4 +7,4 @@ extends CharacterBody3D
 
 
 func _ready() -> void:
-	fsm.change_state(PlayerIdle)
+	fsm.change_state(PlayerAir)
