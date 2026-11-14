@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bqk0lgt6bdcfi"]
+
+[ext_resource type="Script" uid="uid://dfjd1khtet030" path="res://scenes/common/input_buffer/input_buffer.gd" id="1_yl8va"]
+
+[node name="InputBuffer" type="Node" unique_id=1707103855]
+process_mode = 1
+script = ExtResource("1_yl8va")
+
+[node name="InputBufferTimer" type="Timer" parent="." unique_id=39843389]
+process_callback = 0
+one_shot = true

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bni0yp1s2pckh"]
 
 [ext_resource type="Script" uid="uid://ddaedv536jp6s" path="res://core/game/game.gd" id="1_23swt"]
+[ext_resource type="PackedScene" uid="uid://dwdmr408okti8" path="res://scenes/level/test_level.tscn" id="2_4gkfv"]
+[ext_resource type="PackedScene" uid="uid://coj7g664wteod" path="res://scenes/player/player.tscn" id="3_slpoq"]
 
 [node name="Game" type="Node" unique_id=838116718]
 process_mode = 3
@@ -14,8 +16,13 @@ process_mode = 1
 [node name="LevelRoot" type="Node3D" parent="World" unique_id=393414073]
 unique_name_in_owner = true
 
+[node name="TestLevel" parent="World/LevelRoot" unique_id=67324950 instance=ExtResource("2_4gkfv")]
+
 [node name="EntityRoot" type="Node3D" parent="World" unique_id=734097300 groups=["entities"]]
 unique_name_in_owner = true
+
+[node name="Player" parent="World/EntityRoot" unique_id=1638800477 instance=ExtResource("3_slpoq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3404965, 0.12759602, 1.7899253)
 
 [node name="HUDLayer" type="CanvasLayer" parent="." unique_id=774183403]
 layer = 10

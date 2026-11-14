@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bv0jfd8vuedte"]
+
+[ext_resource type="PackedScene" uid="uid://cfomoaj2yh00v" path="res://scenes/player/assets/character-alien.glb" id="1_54w00"]
+[ext_resource type="Script" uid="uid://tq7h66qm7mcn" path="res://scenes/player/player_model/player_model.gd" id="2_rrbr8"]
+[ext_resource type="Texture2D" uid="uid://brrraf12n4s2j" path="res://scenes/player/assets/colormap.png" id="3_wgf84"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rrbr8"]
+albedo_texture = ExtResource("3_wgf84")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wgf84"]
+albedo_texture = ExtResource("3_wgf84")
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g7doa"]
+animation = &"fall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_00c23"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rnvys"]
+animation = &"jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bng3o"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u3556"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1cre7"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sqaei"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pnbx2"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iwh3s"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gpkjr"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rs4eh"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g8tfj"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_edheo"]
+states/fall/node = SubResource("AnimationNodeAnimation_g7doa")
+states/fall/position = Vector2(701, 13)
+states/idle/node = SubResource("AnimationNodeAnimation_00c23")
+states/idle/position = Vector2(369, 100)
+states/jump/node = SubResource("AnimationNodeAnimation_rnvys")
+states/jump/position = Vector2(672, 224)
+states/walk/node = SubResource("AnimationNodeAnimation_bng3o")
+states/walk/position = Vector2(577, 118)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_u3556"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_1cre7"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_sqaei"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_pnbx2"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_iwh3s"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_gpkjr"), "fall", "walk", SubResource("AnimationNodeStateMachineTransition_rs4eh"), "fall", "idle", SubResource("AnimationNodeStateMachineTransition_g8tfj")]
+graph_offset = Vector2(-188, -85)
+
+[node name="PlayerModel" unique_id=46767332 instance=ExtResource("1_54w00")]
+script = ExtResource("2_rrbr8")
+
+[node name="character-alien" parent="." index="0" unique_id=1964801380]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="character-alien" index="0" unique_id=728837389]
+bones/3/rotation = Quaternion(0.040520336, 0, 0, 0.9991788)
+bones/4/rotation = Quaternion(0, 0, -0.26779604, 0.9634757)
+bones/5/rotation = Quaternion(0, 0, 0.26779604, 0.9634757)
+bones/6/rotation = Quaternion(0, -0.040520336, 0, 0.9991788)
+
+[node name="body-mesh" parent="character-alien/Skeleton3D" index="0" unique_id=1422371429]
+surface_material_override/0 = SubResource("StandardMaterial3D_rrbr8")
+
+[node name="head-mesh" parent="character-alien/Skeleton3D" index="1" unique_id=1566901827]
+surface_material_override/0 = SubResource("StandardMaterial3D_wgf84")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=1475683686]
+tree_root = SubResource("AnimationNodeStateMachine_edheo")
+anim_player = NodePath("../AnimationPlayer")

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dwdmr408okti8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n340e"]
+sky_top_color = Color(0, 0.6039216, 0.9764706, 1)
+sky_horizon_color = Color(0.7004414, 0.8546638, 1, 1)
+ground_bottom_color = Color(0.31052166, 0.26770797, 0.35542405, 1)
+ground_horizon_color = Color(0.60857266, 0.8181474, 0.99872404, 1)
+
+[sub_resource type="Sky" id="Sky_1xhu4"]
+sky_material = SubResource("ProceduralSkyMaterial_n340e")
+
+[sub_resource type="Environment" id="Environment_1xhu4"]
+background_mode = 2
+background_color = Color(0.34336826, 0.252976, 0.31306458, 1)
+sky = SubResource("Sky_1xhu4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n340e"]
+albedo_color = Color(0.6944611, 0.6570097, 1, 1)
+
+[node name="TestLevel" type="Node3D" unique_id=67324950]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=431321766]
+transform = Transform3D(1, 0, 0, 0, 0.7289263, 0.68459225, 0, -0.68459225, 0.7289263, 0, 8.172091, 6.869677)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1854999160]
+environment = SubResource("Environment_1xhu4")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1726350826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.3967285)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(10, 0.25, 5.206543)
+material = SubResource("StandardMaterial3D_n340e")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1813415217]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.6032715)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(6.0009766, 0.25, 5.206543)
+material = SubResource("StandardMaterial3D_n340e")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=852237757]
+transform = Transform3D(1, 0, 0, 0, 0.9045263, 0.42641786, 0, -0.42641786, 0.9045263, 0, 3.0345204, 7.3264027)
