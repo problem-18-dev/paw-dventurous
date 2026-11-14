@@ -5,7 +5,7 @@ enum Level {
 	LEVEL_ONE,
 }
 
-const LEVEL_UIDS := { Level.LEVEL_ONE: "uid://cisy15wku6uda" }
+const LEVEL_UIDS := { Level.LEVEL_ONE: "uid://cp00sg7wweix1" }
 
 
 ## Returns UID for [param level].

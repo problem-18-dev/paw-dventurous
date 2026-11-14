@@ -11,7 +11,7 @@
 			"uuid": "eaa0e386-fe39-4799-9d2a-a43397b8cd9d",
 			"title": "Todo",
 			"tasks": [
-				"ff2ac180-b4d9-4d77-9885-94bc113a81b9",
+				"cfa4bf78-4bf6-4cff-9744-d7c483a7cca4",
 				"23b77b67-4ba6-4ffb-ad0c-da6e63706bc2",
 				"03713ae0-0a59-4222-bcc2-87b5e1f706c9",
 				"65e02326-fa63-4d47-b058-38376fec3306",
@@ -22,14 +22,14 @@
 		{
 			"uuid": "7e6565ca-d0de-4825-aba2-3020d90d1aad",
 			"title": "Doing",
-			"tasks": [
-				"cfa4bf78-4bf6-4cff-9744-d7c483a7cca4"
-			]
+			"tasks": []
 		},
 		{
 			"uuid": "8d19d83f-7fa8-42b9-8677-5fbf70a6b41b",
 			"title": "Done",
-			"tasks": []
+			"tasks": [
+				"ff2ac180-b4d9-4d77-9885-94bc113a81b9"
+			]
 		}
 	],
 	"tasks": [
@@ -76,11 +76,11 @@
 			"steps": [
 				{
 					"details": "Camera setup and access",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Settle fixed level width",
-					"done": false
+					"done": true
 				}
 			]
 		},

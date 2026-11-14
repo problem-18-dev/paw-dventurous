@@ -4,10 +4,19 @@
 [ext_resource type="PackedScene" uid="uid://bv0jfd8vuedte" path="res://scenes/player/player_model/player_model.tscn" id="2_dovo2"]
 [ext_resource type="PackedScene" uid="uid://cvejobxnu4ug1" path="res://scenes/common/state_machine/state_machine.tscn" id="3_gmlin"]
 [ext_resource type="PackedScene" uid="uid://bqk0lgt6bdcfi" path="res://scenes/common/input_buffer/input_buffer.tscn" id="4_lvxji"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_0owmy"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="6_qek5x"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_5gtgg"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0reea"]
-radius = 0.25
-height = 0.7
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lvxji"]
+height = 0.6750488
+radius = 0.22
+
+[sub_resource type="Resource" id="Resource_qek5x"]
+script = ExtResource("7_5gtgg")
+duration = 0.5
+ease = 1
+metadata/_custom_type_script = "uid://8umksf8e80fw"
 
 [node name="Player" type="CharacterBody3D" unique_id=1638800477]
 collision_mask = 2
@@ -15,8 +24,8 @@ input_ray_pickable = false
 script = ExtResource("1_8afob")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1561185563]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
-shape = SubResource("CapsuleShape3D_0reea")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3375244, 0)
+shape = SubResource("CylinderShape3D_lvxji")
 
 [node name="PlayerModel" parent="." unique_id=46767332 instance=ExtResource("2_dovo2")]
 
@@ -25,3 +34,29 @@ shape = SubResource("CapsuleShape3D_0reea")
 [node name="JumpInputBuffer" parent="." unique_id=1707103855 instance=ExtResource("4_lvxji")]
 action_name = &"jump"
 buffer_time = 0.1
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1902151789]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 0.8660252, 0.49999988, 0, -0.49999988, 0.8660252, 0, 2, 2)
+top_level = true
+fov = 70.0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=2073318765]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("5_0owmy")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=384270203 node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(1, 0, 0, 0, 0.8660252, 0.49999988, 0, -0.49999988, 0.8660252, 0, 2, 2)
+top_level = true
+script = ExtResource("6_qek5x")
+follow_mode = 2
+follow_target = NodePath("..")
+tween_resource = SubResource("Resource_qek5x")
+follow_offset = Vector3(0, 2, 2)
+follow_damping = true
+follow_axis_lock = 4
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"

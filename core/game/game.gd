@@ -43,4 +43,3 @@ func _load_player() -> void:
 	entity_root.add_child(player)
 
 	player.global_position = spawn_position
-	_current_level.set_camera_target(player)

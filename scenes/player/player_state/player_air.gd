@@ -28,9 +28,7 @@ func exit() -> void:
 
 
 func _physics_update(delta: float) -> void:
-	if not _is_in_coyote:
-		_apply_gravity(delta)
-
+	_apply_gravity(delta)
 	_handle_movement()
 	_handle_rotation()
 	_handle_falling()

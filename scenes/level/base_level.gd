@@ -1,11 +1,10 @@
-@abstract
+## Base level class. Maximum playable level width is 7m.
 class_name BaseLevel
 extends Node3D
 
-
-## Sets camera target to follow in level.
-@abstract func set_camera_target(target: Node3D) -> void
+@onready var spawn_marker: Marker3D = $SpawnMarker3D
 
 
 ## Returns spawn marker position.
-@abstract func get_player_spawn_position() -> Vector3
+func get_player_spawn_position() -> Vector3:
+	return spawn_marker.global_position

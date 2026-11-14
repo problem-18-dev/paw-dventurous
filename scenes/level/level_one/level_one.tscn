@@ -1,71 +1,33 @@
-[gd_scene format=3 uid="uid://cisy15wku6uda"]
+[gd_scene format=3 uid="uid://cp00sg7wweix1"]
 
-[ext_resource type="Script" uid="uid://7c0i6r1b8hlw" path="res://scenes/level/level_one/level_one.gd" id="1_cwdi5"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_sx5pf"]
-[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_cwdi5"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_m2tpk"]
+[ext_resource type="PackedScene" uid="uid://cisy15wku6uda" path="res://scenes/level/base_level.tscn" id="1_8ldsh"]
+[ext_resource type="Script" uid="uid://betr5mbrvcxuf" path="res://scenes/level/base_level.gd" id="2_msmme"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c7ty8"]
-sky_top_color = Color(0.27110508, 0.55926746, 0.82710797, 1)
-sky_horizon_color = Color(0.78247267, 0.78812546, 0.799425, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cwdi5"]
 
-[sub_resource type="Sky" id="Sky_n340e"]
-sky_material = SubResource("ProceduralSkyMaterial_c7ty8")
+[sub_resource type="Sky" id="Sky_sx5pf"]
+sky_material = SubResource("ProceduralSkyMaterial_cwdi5")
 
-[sub_resource type="Environment" id="Environment_1xhu4"]
+[sub_resource type="Environment" id="Environment_msmme"]
 background_mode = 2
-sky = SubResource("Sky_n340e")
-ambient_light_source = 3
-ambient_light_sky_contribution = 0.6
-tonemap_mode = 2
-adjustment_enabled = true
+sky = SubResource("Sky_sx5pf")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4bhsj"]
-albedo_color = Color(0.38974044, 0.26062503, 0.13716713, 1)
+[node name="LevelOne" unique_id=592541545 instance=ExtResource("1_8ldsh")]
+script = ExtResource("2_msmme")
 
-[sub_resource type="Resource" id="Resource_4bhsj"]
-script = ExtResource("3_m2tpk")
+[node name="SpawnMarker3D" parent="." index="0" unique_id=459658787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.049999952, 4)
+gizmo_extents = 1.0
 
-[node name="LevelOne" type="Node3D" unique_id=592541545]
-script = ExtResource("1_cwdi5")
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="1" unique_id=1930571657]
+transform = Transform3D(-0.33588138, 0.5694561, -0.75026894, -0.38116598, 0.6462321, 0.66113275, 0.86133397, 0.5080392, -4.371139e-08, -4.9515605, 4.680698, 0)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=926284414]
-transform = Transform3D(-0.39677995, 0.4589569, -0.79493666, 2.1855694e-08, 0.8660254, 0.5, 0.9179138, 0.19838996, -0.34362152, -3.2422829, 2.5663362, 0)
-light_color = Color(0.8029369, 0.7379482, 0.3022625, 1)
-shadow_enabled = true
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2" unique_id=1382628412]
+environment = SubResource("Environment_msmme")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2044240236]
-environment = SubResource("Environment_1xhu4")
-
-[node name="SpawnMarker3D" type="Marker3D" parent="." unique_id=459658787]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=702147700]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+[node name="CSGBox3D" type="CSGBox3D" parent="." index="3" unique_id=1796784663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)
 use_collision = true
 collision_layer = 2
 collision_mask = 0
-size = Vector3(5, 0.1, 21)
-material = SubResource("StandardMaterial3D_4bhsj")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1576037091]
-transform = Transform3D(1, 0, 0, 0, 0.8660252, 0.49999988, 0, -0.49999988, 0.8660252, 0, 2, 2)
-top_level = true
-
-[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1315933587]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("1_sx5pf")
-metadata/_custom_type_script = "uid://bd046eokvcnu2"
-
-[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1104551143]
-transform = Transform3D(1, 0, 0, 0, 0.8660252, 0.49999988, 0, -0.49999988, 0.8660252, 0, 2, 2)
-top_level = true
-script = ExtResource("2_cwdi5")
-follow_mode = 2
-tween_resource = SubResource("Resource_4bhsj")
-tween_on_load = false
-follow_offset = Vector3(0, 2, 2)
-follow_damping = true
-follow_axis_lock = 4
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+size = Vector3(7, 0.1, 43)

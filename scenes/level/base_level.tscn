@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cisy15wku6uda"]
+
+[node name="BaseLevel" type="Node3D" unique_id=592541545]
+
+[node name="SpawnMarker3D" type="Marker3D" parent="." unique_id=459658787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
