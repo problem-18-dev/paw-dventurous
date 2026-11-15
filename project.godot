@@ -43,7 +43,8 @@ folder_colors={
 "res://assets/prototype/": "yellow",
 "res://core/": "green",
 "res://resources/": "red",
-"res://scenes/": "blue"
+"res://scenes/": "blue",
+"res://testing/": "teal"
 }
 
 [input]
@@ -98,6 +99,7 @@ debug_quit={
 3d_physics/layer_3="hurtbox"
 2d_physics/layer_4="hitbox"
 3d_physics/layer_4="hitbox"
+3d_physics/layer_5="enemy"
 
 [physics]
 

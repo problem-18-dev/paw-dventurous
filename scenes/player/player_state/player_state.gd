@@ -30,4 +30,4 @@ func _handle_rotation(weight := 0.25) -> void:
 		return
 
 	var angle := Basis.looking_at(Vector3(direction.x, 0, direction.y))
-	player.model.basis = player.model.basis.slerp(angle, weight)
+	player.basis = player.basis.slerp(angle, weight)

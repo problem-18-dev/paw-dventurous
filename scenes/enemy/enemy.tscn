@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b7ugca3j4s6fi"]
+
+[ext_resource type="PackedScene" uid="uid://cvejobxnu4ug1" path="res://scenes/common/components/state_machine/state_machine.tscn" id="1_4a83h"]
+[ext_resource type="Script" uid="uid://csmkgvxehm3n3" path="res://scenes/enemy/enemy.gd" id="1_40wdo"]
+[ext_resource type="Texture2D" uid="uid://bolegej480752" path="res://icon.svg" id="1_a3pup"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4a83h"]
+albedo_color = Color(0.70155406, 0.1596658, 0.14639264, 1)
+albedo_texture = ExtResource("1_a3pup")
+uv1_scale = Vector3(1.525, 1.525, 1.525)
+uv1_offset = Vector3(-0.26, 0.35, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1dflu"]
+material = SubResource("StandardMaterial3D_4a83h")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_40wdo"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="Enemy" type="CharacterBody3D" unique_id=1548095246]
+collision_layer = 16
+collision_mask = 2
+input_ray_pickable = false
+script = ExtResource("1_40wdo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1720681986]
+transform = Transform3D(1, 0, 0, 0, 2.9802322e-08, 1, 0, -1, 2.9802322e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_1dflu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1456596784]
+shape = SubResource("BoxShape3D_40wdo")
+
+[node name="StateMachine" parent="." unique_id=1762997490 instance=ExtResource("1_4a83h")]

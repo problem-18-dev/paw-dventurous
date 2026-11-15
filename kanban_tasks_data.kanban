@@ -104,15 +104,23 @@
 		{
 			"uuid": "03713ae0-0a59-4222-bcc2-87b5e1f706c9",
 			"title": "[Feat] Enemies",
-			"description": "Chase enemy is an enemy that wanders around, and when player is close enough, the enemy will approach the player to damage.\n\nPatrol enemy is an enemy that consistently moves between two points, regardless of the player's position.\n\nIn common:\n- Enemy\n- Damage to player on touch",
+			"description": "Chase enemy is an enemy that wanders around, and when player is close enough, the enemy will approach the player to damage.\n\nPatrol enemy is an enemy that consistently moves between two points, regardless of the player's position.",
 			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
 			"steps": [
 				{
 					"details": "Patrol enemy",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Chase enemy",
+					"done": false
+				},
+				{
+					"details": "Turn state",
+					"done": true
+				},
+				{
+					"details": "Attack state",
 					"done": false
 				}
 			]
