@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="PickuppableResource" format=3 uid="uid://cy0r34nqlorpw"]
+
+[ext_resource type="Script" uid="uid://diq83naydi7d3" path="res://resources/pickuppable_resource/pickuppable_resource.gd" id="1_8nsux"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8nsux"]
+load_path = "res://.godot/imported/checkboard.png-602527d850c59b1d96c2c2f0f0b3d220.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v662p"]
+albedo_color = Color(0.4352727, 0.78757894, 0, 1)
+albedo_texture = SubResource("CompressedTexture2D_8nsux")
+
+[sub_resource type="SphereMesh" id="SphereMesh_hb6gs"]
+material = SubResource("StandardMaterial3D_v662p")
+radius = 0.167
+height = 0.333
+
+[resource]
+script = ExtResource("1_8nsux")
+type = 1
+name = &"Tennis ball"
+mesh = SubResource("SphereMesh_hb6gs")
+metadata/_custom_type_script = "uid://diq83naydi7d3"

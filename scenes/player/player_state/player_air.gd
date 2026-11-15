@@ -2,8 +2,8 @@ class_name PlayerAir
 extends PlayerState
 
 const SPEED := 4.0
-const ACCELERATION_WEIGHT := 0.1
-const DECELERATION_WEIGHT := 0.1
+const ACCELERATION := SPEED / 0.2
+const DECELERATION := SPEED / 0.2
 const JUMP_FORCE := 4.0
 const COYOTE_TIME := 0.05
 
@@ -29,7 +29,7 @@ func exit() -> void:
 
 func _physics_update(delta: float) -> void:
 	_apply_gravity(delta)
-	_handle_movement()
+	_handle_movement(delta)
 	_handle_rotation()
 	_handle_falling()
 	player.move_and_slide()
@@ -44,16 +44,24 @@ func _unhandled_input(event: InputEvent) -> void:
 		_jump()
 
 
-func _handle_movement() -> void:
+func _handle_movement(delta: float) -> void:
 	var direction := _get_direction()
 
 	if not is_zero_approx(direction.length_squared()):
-		player.velocity.x = move_toward(player.velocity.x, direction.x * SPEED, ACCELERATION_WEIGHT)
-		player.velocity.z = move_toward(player.velocity.z, direction.y * SPEED, ACCELERATION_WEIGHT)
+		player.velocity.x = move_toward(
+			player.velocity.x,
+			direction.x * SPEED,
+			ACCELERATION * delta,
+		)
+		player.velocity.z = move_toward(
+			player.velocity.z,
+			direction.y * SPEED,
+			ACCELERATION * delta,
+		)
 		return
 
-	player.velocity.x = move_toward(player.velocity.x, 0, DECELERATION_WEIGHT)
-	player.velocity.z = move_toward(player.velocity.z, 0, DECELERATION_WEIGHT)
+	player.velocity.x = move_toward(player.velocity.x, 0, DECELERATION * delta)
+	player.velocity.z = move_toward(player.velocity.z, 0, DECELERATION * delta)
 
 
 func _handle_falling() -> void:
@@ -79,6 +87,7 @@ func _handle_landing() -> void:
 func _jump() -> void:
 	player.model.jump()
 	player.velocity.y = JUMP_FORCE
+	_is_in_coyote = false
 
 
 func _coyote() -> void:

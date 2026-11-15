@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bqk0lgt6bdcfi"]
 
-[ext_resource type="Script" uid="uid://dfjd1khtet030" path="res://scenes/common/input_buffer/input_buffer.gd" id="1_yl8va"]
+[ext_resource type="Script" uid="uid://dfjd1khtet030" path="res://scenes/common/components/input_buffer/input_buffer.gd" id="1_yl8va"]
 
 [node name="InputBuffer" type="Node" unique_id=1707103855]
 process_mode = 1

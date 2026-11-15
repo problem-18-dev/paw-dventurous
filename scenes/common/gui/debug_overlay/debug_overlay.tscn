@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://1ixh5mraqk5g"]
 
-[ext_resource type="Script" uid="uid://brhg31lef8qhq" path="res://gui/debug_overlay/debug_overlay.gd" id="1_toc56"]
+[ext_resource type="Script" uid="uid://brhg31lef8qhq" path="res://scenes/common/gui/debug_overlay/debug_overlay.gd" id="1_ugpax"]
 
 [node name="DebugOverlay" type="Control" unique_id=1047409526]
 layout_mode = 3
@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 mouse_behavior_recursive = 1
-script = ExtResource("1_toc56")
+script = ExtResource("1_ugpax")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1467765901]
 layout_mode = 1

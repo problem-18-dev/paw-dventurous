@@ -2,6 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://cisy15wku6uda" path="res://scenes/level/base_level.tscn" id="1_8ldsh"]
 [ext_resource type="Script" uid="uid://betr5mbrvcxuf" path="res://scenes/level/base_level.gd" id="2_msmme"]
+[ext_resource type="PackedScene" uid="uid://w3m1dk4pk1lm" path="res://scenes/pickuppable/pickuppable.tscn" id="3_sx5pf"]
+[ext_resource type="Resource" uid="uid://cwu5imt73klx3" path="res://resources/pickuppable_resource/dog_treat_data.tres" id="4_cwdi5"]
+[ext_resource type="Resource" uid="uid://cy0r34nqlorpw" path="res://resources/pickuppable_resource/tennis_ball_data.tres" id="5_m2tpk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cwdi5"]
 
@@ -31,3 +34,27 @@ use_collision = true
 collision_layer = 2
 collision_mask = 0
 size = Vector3(7, 0.1, 43)
+
+[node name="Dog treat" parent="." index="4" unique_id=1726688979 instance=ExtResource("3_sx5pf")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0.35, 0)
+data = ExtResource("4_cwdi5")
+
+[node name="Dog treat2" parent="." index="5" unique_id=1027526373 instance=ExtResource("3_sx5pf")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0.35, -1)
+data = ExtResource("4_cwdi5")
+
+[node name="Dog treat3" parent="." index="6" unique_id=2011162297 instance=ExtResource("3_sx5pf")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0.35, -2)
+data = ExtResource("4_cwdi5")
+
+[node name="Dog treat4" parent="." index="7" unique_id=1813924507 instance=ExtResource("3_sx5pf")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0.35, -3)
+data = ExtResource("4_cwdi5")
+
+[node name="Dog treat5" parent="." index="8" unique_id=187283303 instance=ExtResource("3_sx5pf")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1, 0.35, -4)
+data = ExtResource("4_cwdi5")
+
+[node name="Tennis ball" parent="." index="9" unique_id=135220902 instance=ExtResource("3_sx5pf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.35, 0)
+data = ExtResource("5_m2tpk")

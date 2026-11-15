@@ -3,6 +3,7 @@ class_name State
 extends RefCounted
 
 ## Emitted when the state has finished, provides [param next_state].
+@warning_ignore("unused_signal")
 signal finished(next_state: State)
 
 

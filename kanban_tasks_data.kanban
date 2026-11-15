@@ -12,8 +12,6 @@
 			"title": "Todo",
 			"tasks": [
 				"cfa4bf78-4bf6-4cff-9744-d7c483a7cca4",
-				"23b77b67-4ba6-4ffb-ad0c-da6e63706bc2",
-				"03713ae0-0a59-4222-bcc2-87b5e1f706c9",
 				"65e02326-fa63-4d47-b058-38376fec3306",
 				"6478e45c-d78e-42c3-83d7-0508fa771d44",
 				"f9ed828c-bbed-4134-8bc1-d9d16b19ca9d"
@@ -22,13 +20,16 @@
 		{
 			"uuid": "7e6565ca-d0de-4825-aba2-3020d90d1aad",
 			"title": "Doing",
-			"tasks": []
+			"tasks": [
+				"03713ae0-0a59-4222-bcc2-87b5e1f706c9"
+			]
 		},
 		{
 			"uuid": "8d19d83f-7fa8-42b9-8677-5fbf70a6b41b",
 			"title": "Done",
 			"tasks": [
-				"ff2ac180-b4d9-4d77-9885-94bc113a81b9"
+				"ff2ac180-b4d9-4d77-9885-94bc113a81b9",
+				"23b77b67-4ba6-4ffb-ad0c-da6e63706bc2"
 			]
 		}
 	],
@@ -92,18 +93,18 @@
 			"steps": [
 				{
 					"details": "Dog treats",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Tennis balls",
-					"done": false
+					"done": true
 				}
 			]
 		},
 		{
 			"uuid": "03713ae0-0a59-4222-bcc2-87b5e1f706c9",
 			"title": "[Feat] Enemies",
-			"description": "Chase enemy is an enemy that wanders around, and when player is close enough, the enemy will approach the player to damage.\n\nPatrol enemy is an enemy that consistently moves between two points, regardless of the player's position.",
+			"description": "Chase enemy is an enemy that wanders around, and when player is close enough, the enemy will approach the player to damage.\n\nPatrol enemy is an enemy that consistently moves between two points, regardless of the player's position.\n\nIn common:\n- Enemy\n- Damage to player on touch",
 			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
 			"steps": [
 				{

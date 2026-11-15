@@ -36,6 +36,16 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/GDQuest_GDScript_formatter/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/log/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/script-ide/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "yellow",
+"res://assets/prototype/": "yellow",
+"res://core/": "green",
+"res://resources/": "red",
+"res://scenes/": "blue"
+}
+
 [input]
 
 jump={

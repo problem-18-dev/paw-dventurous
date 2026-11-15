@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="PickuppableResource" format=3 uid="uid://cwu5imt73klx3"]
+
+[ext_resource type="Texture2D" uid="uid://dldkuvyub64kh" path="res://assets/prototype/checkboard.png" id="1_hsonu"]
+[ext_resource type="Script" uid="uid://diq83naydi7d3" path="res://resources/pickuppable_resource/pickuppable_resource.gd" id="1_qpf1n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsonu"]
+albedo_color = Color(0.3779735, 0.27496564, 0.11873429, 1)
+albedo_texture = ExtResource("1_hsonu")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_sx5pf"]
+material = SubResource("StandardMaterial3D_hsonu")
+top_radius = 0.125
+bottom_radius = 0.125
+height = 0.5
+
+[resource]
+script = ExtResource("1_qpf1n")
+name = &"Dog treat"
+mesh = SubResource("CylinderMesh_sx5pf")
+metadata/_custom_type_script = "uid://diq83naydi7d3"

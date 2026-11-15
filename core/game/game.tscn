@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bni0yp1s2pckh"]
 
 [ext_resource type="Script" uid="uid://ddaedv536jp6s" path="res://core/game/game.gd" id="1_23swt"]
-[ext_resource type="PackedScene" uid="uid://1ixh5mraqk5g" path="res://scenes/common/debug_overlay/debug_overlay.tscn" id="4_slpoq"]
+[ext_resource type="PackedScene" uid="uid://1ixh5mraqk5g" path="res://scenes/common/gui/debug_overlay/debug_overlay.tscn" id="4_slpoq"]
 
 [node name="Game" type="Node" unique_id=838116718]
 process_mode = 3

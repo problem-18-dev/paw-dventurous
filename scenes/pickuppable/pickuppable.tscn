@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://w3m1dk4pk1lm"]
+
+[ext_resource type="Script" uid="uid://cf4eojd3h7esh" path="res://scenes/pickuppable/pickuppable.gd" id="1_ansm5"]
+[ext_resource type="PackedScene" uid="uid://b5dppqesdtr1k" path="res://scenes/common/components/pickup_3d/pickup_3d.tscn" id="1_oylgv"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8nsux"]
+load_path = "res://.godot/imported/checkboard.png-602527d850c59b1d96c2c2f0f0b3d220.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v662p"]
+albedo_color = Color(0.4352727, 0.78757894, 0, 1)
+albedo_texture = SubResource("CompressedTexture2D_8nsux")
+
+[sub_resource type="SphereMesh" id="SphereMesh_hb6gs"]
+material = SubResource("StandardMaterial3D_v662p")
+radius = 0.167
+height = 0.333
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1xhu4"]
+radius = 0.3
+
+[sub_resource type="Animation" id="Animation_wvnve"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 6.2831855, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ejiuq"]
+resource_name = "spin"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ednd"]
+_data = {
+&"RESET": SubResource("Animation_wvnve"),
+&"spin": SubResource("Animation_ejiuq")
+}
+
+[node name="Pickuppable" type="Node3D" unique_id=1726688979]
+script = ExtResource("1_ansm5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=277566097]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, 0)
+mesh = SubResource("SphereMesh_hb6gs")
+
+[node name="Pickup3D" parent="." unique_id=27983292 instance=ExtResource("1_oylgv")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pickup3D" unique_id=82198865]
+shape = SubResource("SphereShape3D_1xhu4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1566179759]
+libraries/ = SubResource("AnimationLibrary_8ednd")
+autoplay = &"spin"
+
+[connection signal="picked_up" from="Pickup3D" to="." method="_on_pickup_3d_picked_up"]

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://huptmwg2tii4" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="PackedScene" uid="uid://bv0jfd8vuedte" path="res://scenes/player/player_model/player_model.tscn" id="2_dovo2"]
-[ext_resource type="PackedScene" uid="uid://cvejobxnu4ug1" path="res://scenes/common/state_machine/state_machine.tscn" id="3_gmlin"]
-[ext_resource type="PackedScene" uid="uid://bqk0lgt6bdcfi" path="res://scenes/common/input_buffer/input_buffer.tscn" id="4_lvxji"]
+[ext_resource type="PackedScene" uid="uid://cvejobxnu4ug1" path="res://scenes/common/components/state_machine/state_machine.tscn" id="3_gmlin"]
+[ext_resource type="PackedScene" uid="uid://bqk0lgt6bdcfi" path="res://scenes/common/components/input_buffer/input_buffer.tscn" id="4_lvxji"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_0owmy"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="6_qek5x"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_5gtgg"]

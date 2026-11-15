@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://djo8achje25r7"
-path="res://.godot/imported/input_buffer.svg-7d8aadc9ce8e4b3fe0cd29b91034580d.ctex"
+path="res://.godot/imported/input_buffer.svg-2948ebc41c13bfd0c7f66b6da6d50c4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/common/input_buffer/input_buffer.svg"
-dest_files=["res://.godot/imported/input_buffer.svg-7d8aadc9ce8e4b3fe0cd29b91034580d.ctex"]
+source_file="res://scenes/common/components/input_buffer/input_buffer.svg"
+dest_files=["res://.godot/imported/input_buffer.svg-2948ebc41c13bfd0c7f66b6da6d50c4c.ctex"]
 
 [params]
 
