@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cb8k6fmcgrltx"]
+
+[ext_resource type="PackedScene" uid="uid://coj7g664wteod" path="res://scenes/player/player.tscn" id="2_pnukw"]
+
+[sub_resource type="Environment" id="Environment_xn5xb"]
+
+[node name="BlobShadowTest" type="Node3D" unique_id=1797751173]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=827928923]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 2.7402666, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=798388496]
+environment = SubResource("Environment_xn5xb")
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=744609515]
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(12, 0.1, 12)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="." unique_id=893395177]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17962122, 0.049999952, -0.06381369)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+polygon = PackedVector2Array(-2, 0, -1, 1, 1, 1, 5, 0)
+
+[node name="Player" parent="." unique_id=1638800477 instance=ExtResource("2_pnukw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.049999952, 3.7149568)

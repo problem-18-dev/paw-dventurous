@@ -19,12 +19,16 @@ collision_layer = 2
 collision_mask = 0
 size = Vector3(12, 0.1, 12)
 
+[node name="Floor2" type="CSGBox3D" parent="." unique_id=1487562068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.5)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(12, 0.1, 5)
+
 [node name="Enemy" parent="." unique_id=1548095246 instance=ExtResource("1_12gqb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.83099604, 1.3000001, -0.08342928)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.83099604, 0.29999995, -0.08342928)
 positions = Array[Vector3]([Vector3(-4, 0.3, 0), Vector3(0, 0.3, -4), Vector3(4, 0.3, 0)])
 
 [node name="Player" parent="." unique_id=1638800477 instance=ExtResource("2_xn5xb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.049999952, 3.7149568)
-
-[node name="Marker3D" type="Marker3D" parent="." unique_id=703739597]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
