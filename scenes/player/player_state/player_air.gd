@@ -45,7 +45,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _handle_movement(delta: float) -> void:
-	var direction := _get_direction()
+	var direction := player.get_direction()
 
 	if not is_zero_approx(direction.length_squared()):
 		player.velocity.x = move_toward(
@@ -77,7 +77,7 @@ func _handle_landing() -> void:
 		_jump()
 		return
 
-	var direction := _get_direction()
+	var direction := player.get_direction()
 	if is_zero_approx(direction.length_squared()):
 		finished.emit(PlayerIdle)
 	else:

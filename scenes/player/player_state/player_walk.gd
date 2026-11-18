@@ -30,7 +30,7 @@ func _check_floor() -> void:
 
 
 func _handle_movement(delta: float) -> void:
-	var direction := _get_direction()
+	var direction := player.get_direction()
 
 	if not is_zero_approx(direction.length_squared()):
 		var new_velocity := Vector3(direction.x, 0, direction.y) * SPEED

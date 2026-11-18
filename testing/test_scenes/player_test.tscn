@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b1spywu647bth"]
+
+[ext_resource type="PackedScene" uid="uid://coj7g664wteod" path="res://scenes/player/player.tscn" id="1_flsa3"]
+
+[sub_resource type="Environment" id="Environment_xn5xb"]
+
+[node name="PlayerTest" type="Node3D" unique_id=1797751173]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=827928923]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 2.7402666, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=798388496]
+environment = SubResource("Environment_xn5xb")
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=744609515]
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(7, 0.1, 12)
+
+[node name="Floor2" type="CSGBox3D" parent="." unique_id=1487562068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.5)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(7, 0.1, 5)
+
+[node name="Floor3" type="CSGBox3D" parent="." unique_id=959002747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -23.5)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(7, 0.1, 5)
+
+[node name="Floor4" type="CSGBox3D" parent="." unique_id=231182072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -16.484827)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(2, 0.1, 5)
+
+[node name="Floor5" type="CSGBox3D" parent="." unique_id=952035285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -16.484827)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(2, 0.1, 5)
+
+[node name="Player" parent="." unique_id=1638800477 instance=ExtResource("1_flsa3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05000007, 0)
