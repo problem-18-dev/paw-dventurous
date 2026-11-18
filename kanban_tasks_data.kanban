@@ -11,6 +11,7 @@
 			"uuid": "eaa0e386-fe39-4799-9d2a-a43397b8cd9d",
 			"title": "Todo",
 			"tasks": [
+				"fdd7f399-5be8-4d3c-9fbc-447ac1a6afc9",
 				"cfa4bf78-4bf6-4cff-9744-d7c483a7cca4",
 				"65e02326-fa63-4d47-b058-38376fec3306",
 				"6478e45c-d78e-42c3-83d7-0508fa771d44",
@@ -21,7 +22,7 @@
 			"uuid": "7e6565ca-d0de-4825-aba2-3020d90d1aad",
 			"title": "Doing",
 			"tasks": [
-				"03713ae0-0a59-4222-bcc2-87b5e1f706c9"
+				"b4b782a6-cab6-44c3-8c21-e07a96b02bb5"
 			]
 		},
 		{
@@ -29,6 +30,7 @@
 			"title": "Done",
 			"tasks": [
 				"ff2ac180-b4d9-4d77-9885-94bc113a81b9",
+				"03713ae0-0a59-4222-bcc2-87b5e1f706c9",
 				"23b77b67-4ba6-4ffb-ad0c-da6e63706bc2"
 			]
 		}
@@ -113,15 +115,11 @@
 				},
 				{
 					"details": "Chase enemy",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Turn state",
 					"done": true
-				},
-				{
-					"details": "Attack state",
-					"done": false
 				}
 			]
 		},
@@ -164,6 +162,29 @@
 		{
 			"uuid": "f9ed828c-bbed-4134-8bc1-d9d16b19ca9d",
 			"title": "[Bonus] Vertical level",
+			"description": "",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": []
+		},
+		{
+			"uuid": "fdd7f399-5be8-4d3c-9fbc-447ac1a6afc9",
+			"title": "[Feat] Destroyable crate",
+			"description": "A destroyable crate that can be jumped on to bounce, destroyed with attack, or destroyed with jumping under it with player's head.\n\nRemember: A crate can later on be full of pickuppables and has to be hit multiple times.",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": [
+				{
+					"details": "Bounces player off top",
+					"done": false
+				},
+				{
+					"details": "Can be destroyed from bottom",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "b4b782a6-cab6-44c3-8c21-e07a96b02bb5",
+			"title": "[Feat] Replicate Crash Bandicoot camera",
 			"description": "",
 			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
 			"steps": []

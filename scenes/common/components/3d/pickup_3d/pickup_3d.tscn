@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b5dppqesdtr1k"]
 
-[ext_resource type="Script" uid="uid://cfueu3vhg14du" path="res://scenes/common/components/pickup_3d/pickup_3d.gd" id="1_ablqi"]
+[ext_resource type="Script" uid="uid://cfueu3vhg14du" path="res://scenes/common/components/3d/pickup_3d/pickup_3d.gd" id="1_ablqi"]
 
 [node name="Pickup3D" type="Area3D" unique_id=27983292]
 process_mode = 1

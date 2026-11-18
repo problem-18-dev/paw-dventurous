@@ -27,7 +27,7 @@ collision_mask = 0
 size = Vector3(12, 0.1, 5)
 
 [node name="Enemy" parent="." unique_id=1548095246 instance=ExtResource("1_12gqb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.83099604, 0.29999995, -0.08342928)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29890144, 0)
 positions = Array[Vector3]([Vector3(-4, 0.3, 0), Vector3(0, 0.3, -4), Vector3(4, 0.3, 0)])
 
 [node name="Player" parent="." unique_id=1638800477 instance=ExtResource("2_xn5xb")]

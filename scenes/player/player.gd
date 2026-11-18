@@ -6,5 +6,9 @@ extends CharacterBody3D
 @onready var jump_input_buffer: InputBuffer = $JumpInputBuffer
 
 
+func _init() -> void:
+	add_to_group(GroupConfig.PLAYER)
+
+
 func _ready() -> void:
 	fsm.change_state(PlayerAir)

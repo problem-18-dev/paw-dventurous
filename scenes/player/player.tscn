@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://huptmwg2tii4" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="PackedScene" uid="uid://bv0jfd8vuedte" path="res://scenes/player/player_model/player_model.tscn" id="2_dovo2"]
-[ext_resource type="PackedScene" uid="uid://cvejobxnu4ug1" path="res://scenes/common/components/state_machine/state_machine.tscn" id="3_gmlin"]
-[ext_resource type="PackedScene" uid="uid://bqk0lgt6bdcfi" path="res://scenes/common/components/input_buffer/input_buffer.tscn" id="4_lvxji"]
+[ext_resource type="PackedScene" uid="uid://cvejobxnu4ug1" path="res://scenes/common/components/node/state_machine/state_machine.tscn" id="3_gmlin"]
+[ext_resource type="PackedScene" uid="uid://bqk0lgt6bdcfi" path="res://scenes/common/components/node/input_buffer/input_buffer.tscn" id="4_lvxji"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_0owmy"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="6_qek5x"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_5gtgg"]
-[ext_resource type="PackedScene" uid="uid://ccg6mrbc2vyf5" path="res://scenes/common/components/blob_shadow/blob_shadow_compat.tscn" id="8_qek5x"]
+[ext_resource type="PackedScene" uid="uid://ccg6mrbc2vyf5" path="res://scenes/common/components/3d/blob_shadow_3d/blob_shadow_compat_3d.tscn" id="8_qek5x"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_lvxji"]
 height = 0.6750488
@@ -38,7 +38,7 @@ buffer_time = 0.1
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1902151789]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.50000006, 0, -0.50000006, 0.8660254, 0, 2, 2)
+transform = Transform3D(1, 0, 0, 0, 0.8660252, 0.49999988, 0, -0.49999988, 0.8660252, 0, 2, 2)
 top_level = true
 fov = 70.0
 

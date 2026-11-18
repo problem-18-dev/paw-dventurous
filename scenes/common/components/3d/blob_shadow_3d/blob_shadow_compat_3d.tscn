@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ccg6mrbc2vyf5"]
 
-[ext_resource type="Script" uid="uid://dwqsrt1rwd4yk" path="res://scenes/common/components/blob_shadow/blob_shadow_compat.gd" id="1_1tlyh"]
+[ext_resource type="Script" uid="uid://dwqsrt1rwd4yk" path="res://scenes/common/components/3d/blob_shadow_3d/blob_shadow_compat_3d.gd" id="1_1tlyh"]
 
 [sub_resource type="Gradient" id="Gradient_22l8e"]
 colors = PackedColorArray(0, 0, 0, 0.78431374, 0, 0, 0, 0)
@@ -23,7 +23,7 @@ material = SubResource("StandardMaterial3D_1tlyh")
 size = Vector2(0.5, 0.5)
 center_offset = Vector3(0, 0.01, 0)
 
-[node name="BlobShadowCompat" type="Node3D" unique_id=1512808396]
+[node name="BlobShadowCompat3D" type="Node3D" unique_id=1512808396]
 script = ExtResource("1_1tlyh")
 
 [node name="BlobShadow" type="MeshInstance3D" parent="." unique_id=1016607931]

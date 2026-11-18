@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://w3m1dk4pk1lm"]
 
 [ext_resource type="Script" uid="uid://cf4eojd3h7esh" path="res://scenes/pickuppable/pickuppable.gd" id="1_ansm5"]
-[ext_resource type="PackedScene" uid="uid://b5dppqesdtr1k" path="res://scenes/common/components/pickup_3d/pickup_3d.tscn" id="1_oylgv"]
+[ext_resource type="PackedScene" uid="uid://b5dppqesdtr1k" path="res://scenes/common/components/3d/pickup_3d/pickup_3d.tscn" id="1_oylgv"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8nsux"]
 load_path = "res://.godot/imported/checkboard.png-602527d850c59b1d96c2c2f0f0b3d220.s3tc.ctex"

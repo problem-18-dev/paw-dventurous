@@ -12,6 +12,7 @@ var next_position_pointer := 0
 
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 @onready var fsm: StateMachine = $StateMachine
+@onready var turn_toward_3d: TurnToward3D = $TurnToward3D
 
 
 func _get_configuration_warnings() -> PackedStringArray:
@@ -25,3 +26,11 @@ func _ready() -> void:
 		return
 
 	fsm.change_state(EnemyPatrol)
+
+
+func _on_player_entry_detection_body_entered(_body: Node3D) -> void:
+	fsm.change_state(EnemyChase)
+
+
+func _on_player_exit_detection_body_exited(_body: Node3D) -> void:
+	fsm.change_state(EnemyTurn)
