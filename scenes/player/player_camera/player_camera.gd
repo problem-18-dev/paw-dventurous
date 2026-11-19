@@ -9,10 +9,10 @@ const FORWARD_Z_OFFSET := 1.4
 const BACKWARD_Z_OFFSET := 2.3
 
 const OFFSET_SPEED := 1.0
-const FORWARD_OFFSET_ACCEL := OFFSET_SPEED / 0.25
-const BACKWARD_OFFSET_ACCEL := OFFSET_SPEED / 0.15
 
 @export var player: Player
+@export var forward_offset_accel := 0.75
+@export var backward_offset_accel := 0.5
 
 @onready var phantom_camera: PhantomCamera3D = $PhantomCamera3D
 
@@ -42,7 +42,7 @@ func _forward_offset(current_z: float, delta: float) -> void:
 	phantom_camera.follow_offset.z = move_toward(
 		current_z,
 		FORWARD_Z_OFFSET,
-		FORWARD_OFFSET_ACCEL * delta,
+		OFFSET_SPEED / forward_offset_accel * delta,
 	)
 
 
@@ -54,5 +54,5 @@ func _backward_offset(current_z: float, delta: float) -> void:
 	phantom_camera.follow_offset.z = move_toward(
 		current_z,
 		BACKWARD_Z_OFFSET,
-		BACKWARD_OFFSET_ACCEL * delta,
+		OFFSET_SPEED / backward_offset_accel * delta,
 	)

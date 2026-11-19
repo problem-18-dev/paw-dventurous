@@ -14,7 +14,7 @@ func _physics_update(_delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"jump"):
-		finished.emit(PlayerAir, { "jump": true })
+		finished.emit(PlayerAirJump)
 
 
 func _handle_movement() -> void:

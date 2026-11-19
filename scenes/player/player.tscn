@@ -31,12 +31,6 @@ shape = SubResource("CylinderShape3D_lvxji")
 
 [node name="PlayerModel" parent="." unique_id=46767332 instance=ExtResource("2_dovo2")]
 
-[node name="StateMachine" parent="." unique_id=1762997490 instance=ExtResource("3_gmlin")]
-
-[node name="JumpInputBuffer" parent="." unique_id=1707103855 instance=ExtResource("4_lvxji")]
-action_name = &"jump"
-buffer_time = 0.1
-
 [node name="BlobShadowCompat" parent="." unique_id=1512808396 instance=ExtResource("8_qek5x")]
 
 [node name="PlayerCamera" type="Node3D" parent="." unique_id=2096482025 node_paths=PackedStringArray("player")]
@@ -71,3 +65,9 @@ collision_mask = 2
 align_transform_with_view = Callable()
 align_position_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="StateMachine" parent="." unique_id=1762997490 instance=ExtResource("3_gmlin")]
+
+[node name="JumpInputBuffer" parent="." unique_id=1707103855 instance=ExtResource("4_lvxji")]
+action_name = &"jump"
+buffer_time = 0.1

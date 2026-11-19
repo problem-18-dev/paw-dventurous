@@ -11,7 +11,7 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	fsm.change_state(PlayerAir)
+	fsm.change_state(PlayerAirFall)
 
 
 ## Returns [Vector2] direction, X is left/right, Y is forward/backward. Negative Y means forward.
