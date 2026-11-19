@@ -100,11 +100,11 @@ debug_quit={
 2d_physics/layer_4="hitbox"
 3d_physics/layer_4="hitbox"
 3d_physics/layer_5="enemy"
+3d_physics/layer_6="destroyable"
 
 [physics]
 
 3d/physics_engine="Jolt Physics"
-common/physics_interpolation=true
 common/enable_object_picking=false
 
 [rendering]

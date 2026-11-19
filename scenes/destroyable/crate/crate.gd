@@ -1,10 +1,12 @@
 class_name Crate
 extends Destroyable
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 
 ## Animates bounce.
 func bounce() -> void:
-	pass
+	animation_player.play(&"bounce")
 
 
 ## Calls [method destroy]

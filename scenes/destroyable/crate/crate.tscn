@@ -9,29 +9,14 @@ albedo_texture = ExtResource("1_xa5qw")
 
 [sub_resource type="BoxMesh" id="BoxMesh_3iny0"]
 material = SubResource("StandardMaterial3D_3iny0")
-size = Vector3(0.75, 0.75, 0.75)
+size = Vector3(0.3, 0.3, 0.3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n340e"]
-size = Vector3(0.75, 0.75, 0.75)
-
-[sub_resource type="Animation" id="Animation_vhiiy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D:mesh:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.75, 0.75, 0.75)]
-}
+size = Vector3(0.3, 0.3, 0.3)
 
 [sub_resource type="Animation" id="Animation_aofcf"]
 resource_name = "bounce"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -42,17 +27,16 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0.75, 0.75, 0.75), Vector3(0.9, 0.6, 0.9), Vector3(0.75, 0.75, 0.75)]
+"values": [Vector3(0.3, 0.3, 0.3), Vector3(0.4, 0.2, 0.4), Vector3(0.3, 0.3, 0.3)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vhiiy"]
 _data = {
-&"RESET": SubResource("Animation_vhiiy"),
 &"bounce": SubResource("Animation_aofcf")
 }
 
 [node name="Crate" type="StaticBody3D" unique_id=703298551]
-collision_layer = 0
+collision_layer = 32
 collision_mask = 0
 input_ray_pickable = false
 axis_lock_linear_x = true

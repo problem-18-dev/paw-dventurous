@@ -4,6 +4,18 @@ extends CharacterBody3D
 @onready var fsm: StateMachine = $StateMachine
 @onready var model: PlayerModel = $PlayerModel
 @onready var jump_input_buffer: InputBuffer = $JumpInputBuffer
+@onready var ceiling_ray_casts: Array[RayCast3D] = [
+	$CeilingRayCasts/HeadFrontLeftRayCast,
+	$CeilingRayCasts/HeadFrontRightRayCast,
+	$CeilingRayCasts/HeadRearLeftRayCast,
+	$CeilingRayCasts/HeadRearRightRayCast,
+]
+@onready var floor_ray_casts: Array[RayCast3D] = [
+	$FloorRayCasts/FloorFrontLeftRayCast,
+	$FloorRayCasts/FloorFrontRightRayCast,
+	$FloorRayCasts/FloorRearLeftRayCast,
+	$FloorRayCasts/FloorRearRightRayCast,
+]
 
 
 func _init() -> void:

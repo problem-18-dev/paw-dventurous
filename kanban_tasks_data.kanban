@@ -20,15 +20,14 @@
 		{
 			"uuid": "7e6565ca-d0de-4825-aba2-3020d90d1aad",
 			"title": "Doing",
-			"tasks": [
-				"fdd7f399-5be8-4d3c-9fbc-447ac1a6afc9"
-			]
+			"tasks": []
 		},
 		{
 			"uuid": "8d19d83f-7fa8-42b9-8677-5fbf70a6b41b",
 			"title": "Done",
 			"tasks": [
 				"ff2ac180-b4d9-4d77-9885-94bc113a81b9",
+				"fdd7f399-5be8-4d3c-9fbc-447ac1a6afc9",
 				"03713ae0-0a59-4222-bcc2-87b5e1f706c9",
 				"b4b782a6-cab6-44c3-8c21-e07a96b02bb5",
 				"23b77b67-4ba6-4ffb-ad0c-da6e63706bc2"
@@ -174,11 +173,11 @@
 			"steps": [
 				{
 					"details": "Bounces player off top",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Can be destroyed from bottom",
-					"done": false
+					"done": true
 				}
 			]
 		},

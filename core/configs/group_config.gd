@@ -4,3 +4,4 @@ class_name GroupConfig
 extends Object
 
 const PLAYER := &"player"
+const DESTROYABLE := &"destroyable"

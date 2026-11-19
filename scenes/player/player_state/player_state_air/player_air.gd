@@ -2,7 +2,7 @@
 class_name PlayerAir
 extends PlayerState
 
-const SPEED := 4.0
+const SPEED := 3.0
 const ACCELERATION := SPEED / 0.2
 const DECELERATION := SPEED / 0.2
 

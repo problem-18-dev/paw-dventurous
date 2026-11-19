@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ctckt3n68fvvo"]
+
+[ext_resource type="PackedScene" uid="uid://coj7g664wteod" path="res://scenes/player/player.tscn" id="1_x6dqf"]
+[ext_resource type="PackedScene" uid="uid://kpwo3xg8vv5j" path="res://scenes/destroyable/crate/crate.tscn" id="2_wq7k3"]
+
+[sub_resource type="Environment" id="Environment_xn5xb"]
+
+[node name="CrateTest" type="Node3D" unique_id=1797751173]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=827928923]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 2.7402666, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=798388496]
+environment = SubResource("Environment_xn5xb")
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=744609515]
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(7, 0.1, 12)
+
+[node name="Player" parent="." unique_id=1638800477 instance=ExtResource("1_x6dqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05000007, 0)
+
+[node name="Crate" parent="." unique_id=703298551 instance=ExtResource("2_wq7k3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4391727, -1)
