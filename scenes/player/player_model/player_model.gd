@@ -2,8 +2,9 @@ class_name PlayerModel
 extends Node3D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var animation_tree: AnimationTree = $AnimationTree
 @onready var state_machine: AnimationNodeStateMachinePlayback = $AnimationTree.get(
-	"parameters/playback"
+	"parameters/Locomotion/playback"
 )
 
 
@@ -21,3 +22,7 @@ func jump() -> void:
 
 func fall() -> void:
 	state_machine.travel(&"fall")
+
+
+func attack() -> void:
+	animation_tree.set("parameters/Attack/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)

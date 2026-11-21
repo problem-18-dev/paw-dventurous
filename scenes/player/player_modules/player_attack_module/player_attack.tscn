@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b50gkybrkvf72"]
+
+[ext_resource type="Script" uid="uid://c6t4k85pnqa0l" path="res://scenes/player/player_modules/player_attack_module/player_attack_module.gd" id="1_px6o8"]
+[ext_resource type="PackedScene" uid="uid://bqk0lgt6bdcfi" path="res://scenes/common/components/node/input_buffer/input_buffer.tscn" id="2_t6si8"]
+
+[node name="PlayerAttackModule" type="Node" unique_id=1272257980]
+script = ExtResource("1_px6o8")
+
+[node name="AttackInputBuffer" parent="." unique_id=1707103855 instance=ExtResource("2_t6si8")]
+action_name = &"attack"
+
+[node name="AttackCooldown" type="Timer" parent="." unique_id=158576306]
+one_shot = true
+
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

@@ -46,16 +46,35 @@ xfade_time = 0.1
 xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_edheo"]
+states/Start/position = Vector2(201, 100)
 states/fall/node = SubResource("AnimationNodeAnimation_g7doa")
 states/fall/position = Vector2(701, 13)
 states/idle/node = SubResource("AnimationNodeAnimation_00c23")
-states/idle/position = Vector2(369, 100)
+states/idle/position = Vector2(393, 100)
 states/jump/node = SubResource("AnimationNodeAnimation_rnvys")
 states/jump/position = Vector2(672, 224)
 states/walk/node = SubResource("AnimationNodeAnimation_bng3o")
-states/walk/position = Vector2(577, 118)
+states/walk/position = Vector2(581, 116)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_u3556"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_1cre7"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_sqaei"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_pnbx2"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_iwh3s"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_gpkjr"), "fall", "walk", SubResource("AnimationNodeStateMachineTransition_rs4eh"), "fall", "idle", SubResource("AnimationNodeStateMachineTransition_g8tfj")]
 graph_offset = Vector2(-188, -85)
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_nffu4"]
+fadein_time = 0.1
+fadeout_time = 0.2
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_edheo"]
+animation = &"attack-kick-left"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_00c23"]
+graph_offset = Vector2(-693.9792, 252.85327)
+nodes/output/position = Vector2(680, 620)
+nodes/Locomotion/node = SubResource("AnimationNodeStateMachine_edheo")
+nodes/Locomotion/position = Vector2(40, 520)
+nodes/Attack/node = SubResource("AnimationNodeOneShot_nffu4")
+nodes/Attack/position = Vector2(460, 580)
+nodes/AttackAnimation/node = SubResource("AnimationNodeAnimation_edheo")
+nodes/AttackAnimation/position = Vector2(60, 820)
+node_connections = [&"output", 0, &"Attack", &"Attack", 0, &"Locomotion", &"Attack", 1, &"AttackAnimation"]
 
 [node name="PlayerModel" unique_id=46767332 instance=ExtResource("1_54w00")]
 script = ExtResource("2_rrbr8")
@@ -63,18 +82,20 @@ script = ExtResource("2_rrbr8")
 [node name="character-alien" parent="." index="0" unique_id=1964801380]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Skeleton3D" parent="character-alien" index="0" unique_id=728837389]
-bones/3/rotation = Quaternion(0.040520336, 0, 0, 0.9991788)
-bones/4/rotation = Quaternion(0, 0, -0.26779604, 0.9634757)
-bones/5/rotation = Quaternion(0, 0, 0.26779604, 0.9634757)
-bones/6/rotation = Quaternion(0, -0.040520336, 0, 0.9991788)
-
-[node name="body-mesh" parent="character-alien/Skeleton3D" index="0" unique_id=1422371429]
+[node name="body-mesh" parent="character-alien/Skeleton3D" parent_id_path=PackedInt32Array(728837389) index="0" unique_id=1422371429]
 surface_material_override/0 = SubResource("StandardMaterial3D_rrbr8")
 
-[node name="head-mesh" parent="character-alien/Skeleton3D" index="1" unique_id=1566901827]
+[node name="head-mesh" parent="character-alien/Skeleton3D" parent_id_path=PackedInt32Array(728837389) index="1" unique_id=1566901827]
 surface_material_override/0 = SubResource("StandardMaterial3D_wgf84")
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=1475683686]
+[node name="AnimationTreeOld" type="AnimationTree" parent="." index="2" unique_id=1475683686]
+process_mode = 4
 tree_root = SubResource("AnimationNodeStateMachine_edheo")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="3" unique_id=1925683002]
+tree_root = SubResource("AnimationNodeBlendTree_00c23")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Attack/active = false
+parameters/Attack/internal_active = false
+parameters/Attack/request = 0
