@@ -5,7 +5,7 @@ signal attack_requested
 ## Emitted when attack has finished.
 signal finished
 
-@export var cooldown := 0.25
+@export_range(0.1, 1.0) var cooldown := 0.25
 
 @onready var input_buffer: InputBuffer = $AttackInputBuffer
 @onready var attack_cooldown: Timer = $AttackCooldown
@@ -14,6 +14,12 @@ signal finished
 func _physics_process(_delta: float) -> void:
 	if input_buffer.is_buffered() and attack_cooldown.is_stopped():
 		_attack()
+
+
+func disable() -> void:
+	set_physics_process(false)
+	attack_cooldown.stop()
+	input_buffer.settle()
 
 
 func _attack() -> void:

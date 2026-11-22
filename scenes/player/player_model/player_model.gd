@@ -26,3 +26,7 @@ func fall() -> void:
 
 func attack() -> void:
 	animation_tree.set("parameters/Attack/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+
+
+func die() -> void:
+	state_machine.travel(&"die")

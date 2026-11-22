@@ -4,6 +4,8 @@ extends CharacterBody3D
 @onready var fsm: StateMachine = $StateMachine
 @onready var model: PlayerModel = $PlayerModel
 @onready var jump_input_buffer: InputBuffer = $JumpInputBuffer
+@onready var camera: PlayerCamera = $PlayerCamera
+@onready var attack_module: Node = %PlayerAttackModule
 @onready var ceiling_ray_casts: Array[RayCast3D] = [
 	$CeilingRayCasts/HeadFrontLeftRayCast,
 	$CeilingRayCasts/HeadFrontRightRayCast,

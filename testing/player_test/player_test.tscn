@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://b1spywu647bth"]
+
+[ext_resource type="Script" uid="uid://ccpfvhnbhovwk" path="res://testing/player_test/player_test.gd" id="1_g8sx7"]
+[ext_resource type="PackedScene" uid="uid://coj7g664wteod" path="res://scenes/player/player.tscn" id="2_y74hi"]
+[ext_resource type="PackedScene" uid="uid://1ixh5mraqk5g" path="res://scenes/common/gui/debug_overlay/debug_overlay.tscn" id="3_y74hi"]
+
+[sub_resource type="Environment" id="Environment_xn5xb"]
+
+[node name="PlayerTest" type="Node3D" unique_id=1797751173]
+script = ExtResource("1_g8sx7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=827928923]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 2.7402666, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=798388496]
+environment = SubResource("Environment_xn5xb")
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=744609515]
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(7, 0.1, 12)
+
+[node name="Floor2" type="CSGBox3D" parent="." unique_id=1487562068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.5)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(7, 0.1, 5)
+
+[node name="Floor3" type="CSGBox3D" parent="." unique_id=959002747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -23.5)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(7, 0.1, 5)
+
+[node name="Floor4" type="CSGBox3D" parent="." unique_id=231182072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -16.484827)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(2, 0.1, 5)
+
+[node name="Floor5" type="CSGBox3D" parent="." unique_id=952035285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -16.484827)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(2, 0.1, 5)
+
+[node name="Player" parent="." unique_id=1638800477 instance=ExtResource("2_y74hi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.049999952, 0)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=24512323]
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=882406089]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer" unique_id=608153816]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="DieButton" type="Button" parent="HUD/MarginContainer/VBoxContainer" unique_id=1957038233]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_behavior_recursive = 2
+text = "Die"
+
+[node name="ResetButton" type="Button" parent="HUD/MarginContainer/VBoxContainer" unique_id=6032558]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_behavior_recursive = 2
+text = "Reset"
+
+[node name="DebugOverlay" parent="HUD" unique_id=1047409526 instance=ExtResource("3_y74hi")]
+
+[connection signal="pressed" from="HUD/MarginContainer/VBoxContainer/DieButton" to="." method="_on_die_button_pressed"]
+[connection signal="pressed" from="HUD/MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]

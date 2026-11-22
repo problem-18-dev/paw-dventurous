@@ -8,7 +8,6 @@ const FORWARD_Z_OFFSET := 1.3
 const BACKWARD_Z_OFFSET := 2.2
 const FULL_RANGE := BACKWARD_Z_OFFSET - FORWARD_Z_OFFSET
 
-@export var player: Player
 @export_group("Interpolation")
 @export var forward_offset_time := 0.75
 @export var backward_offset_time := 0.5
@@ -22,21 +21,28 @@ var _target_offset: float
 
 
 func _ready() -> void:
-	assert(player, "No Player assigned to PlayerCamera.")
+	await owner.ready
+	assert(owner is Player, "Camera must be child of Player.")
+	phantom_camera.follow_target = owner
 
 
 func _physics_process(_delta: float) -> void:
-	var vertical_direction := player.get_direction().y
+	var vertical_direction := Input.get_axis("move_backward", "move_forward")
 
 	# Stop moving camera if not moving.
 	if is_zero_approx(vertical_direction):
 		_stop()
 		return
 
-	if vertical_direction < 0:
+	if vertical_direction > 0:
 		_move_camera(FORWARD_Z_OFFSET, forward_offset_time)
 	else:
 		_move_camera(BACKWARD_Z_OFFSET, backward_offset_time)
+
+
+func disable() -> void:
+	_stop()
+	set_physics_process(false)
 
 
 func _move_camera(target_offset: float, time: float) -> void:
