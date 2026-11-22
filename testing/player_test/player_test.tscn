@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ccpfvhnbhovwk" path="res://testing/player_test/player_test.gd" id="1_g8sx7"]
 [ext_resource type="PackedScene" uid="uid://coj7g664wteod" path="res://scenes/player/player.tscn" id="2_y74hi"]
 [ext_resource type="PackedScene" uid="uid://1ixh5mraqk5g" path="res://scenes/common/gui/debug_overlay/debug_overlay.tscn" id="3_y74hi"]
+[ext_resource type="PackedScene" uid="uid://dhwevqilw172s" path="res://scenes/level/level_finish/finish_area.tscn" id="4_yqwy6"]
 
 [sub_resource type="Environment" id="Environment_xn5xb"]
 
@@ -48,6 +49,9 @@ use_collision = true
 collision_layer = 2
 collision_mask = 0
 size = Vector3(2, 0.1, 5)
+
+[node name="LevelFinishArea" parent="." unique_id=1430603686 instance=ExtResource("4_yqwy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175, -24.5)
 
 [node name="Player" parent="." unique_id=1638800477 instance=ExtResource("2_y74hi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.049999952, 0)

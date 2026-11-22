@@ -7,7 +7,10 @@ extends Node3D
 signal finished
 
 ## Target to turn. Defaults to parent.
-@export var target: Node3D
+@export var target: Node3D:
+	set(value):
+		target = value
+		update_configuration_warnings()
 @export_group("Limitation")
 @export var horizontal_only := true
 

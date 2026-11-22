@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bni0yp1s2pckh"]
 
 [ext_resource type="Script" uid="uid://ddaedv536jp6s" path="res://core/game/game.gd" id="1_23swt"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_4gkfv"]
 [ext_resource type="PackedScene" uid="uid://1ixh5mraqk5g" path="res://scenes/common/gui/debug_overlay/debug_overlay.tscn" id="4_slpoq"]
 
 [node name="Game" type="Node" unique_id=838116718]
@@ -18,6 +19,16 @@ unique_name_in_owner = true
 
 [node name="EntityRoot" type="Node3D" parent="World" unique_id=734097300 groups=["entities"]]
 unique_name_in_owner = true
+
+[node name="Camera3D" type="Camera3D" parent="World" unique_id=1038868282]
+physics_interpolation_mode = 2
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="World/Camera3D" unique_id=2104008633]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_4gkfv")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="HUDLayer" type="CanvasLayer" parent="." unique_id=774183403]
 process_mode = 1

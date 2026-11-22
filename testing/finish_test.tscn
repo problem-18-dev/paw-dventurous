@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://by7m2f7fruxv"]
+
+[ext_resource type="PackedScene" uid="uid://dhwevqilw172s" path="res://scenes/level/level_finish/finish_area.tscn" id="2_gjagc"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_du1li"]
+[ext_resource type="PackedScene" uid="uid://coj7g664wteod" path="res://scenes/player/player.tscn" id="3_wekyf"]
+
+[sub_resource type="Environment" id="Environment_xn5xb"]
+
+[node name="FinishTest" type="Node3D" unique_id=1797751173]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=827928923]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 2.7402666, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=798388496]
+environment = SubResource("Environment_xn5xb")
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=744609515]
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(7, 0.1, 12)
+
+[node name="LevelFinishArea" parent="." unique_id=1430603686 instance=ExtResource("2_gjagc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175, -3.5596237)
+
+[node name="Player" parent="." unique_id=1638800477 instance=ExtResource("3_wekyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.049999952, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=540944914]
+physics_interpolation_mode = 1
+transform = Transform3D(0.9999995, 0, 0, 0, 0.8660253, 0.49999973, 0, -0.49999997, 0.8660249, 0, 1.8499999, 2.2)
+top_level = true
+fov = 80.0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1555656976]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_du1li")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"

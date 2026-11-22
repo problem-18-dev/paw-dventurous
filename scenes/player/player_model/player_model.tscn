@@ -29,6 +29,9 @@ animation = &"idle"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rnvys"]
 animation = &"jump"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nrq88"]
+animation = &"sit"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bng3o"]
 animation = &"walk"
 
@@ -55,6 +58,9 @@ xfade_time = 0.1
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g8tfj"]
 xfade_time = 0.1
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nffu4"]
+xfade_time = 0.1
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_edheo"]
 states/Start/position = Vector2(201, 100)
 states/die/node = SubResource("AnimationNodeAnimation_wgf84")
@@ -65,13 +71,15 @@ states/idle/node = SubResource("AnimationNodeAnimation_00c23")
 states/idle/position = Vector2(393, 100)
 states/jump/node = SubResource("AnimationNodeAnimation_rnvys")
 states/jump/position = Vector2(672, 224)
+states/sit/node = SubResource("AnimationNodeAnimation_nrq88")
+states/sit/position = Vector2(809, 18)
 states/walk/node = SubResource("AnimationNodeAnimation_bng3o")
 states/walk/position = Vector2(581, 116)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_u3556"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_1cre7"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_sqaei"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_pnbx2"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_iwh3s"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_gpkjr"), "fall", "walk", SubResource("AnimationNodeStateMachineTransition_rs4eh"), "fall", "idle", SubResource("AnimationNodeStateMachineTransition_g8tfj")]
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_u3556"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_1cre7"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_sqaei"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_pnbx2"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_iwh3s"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_gpkjr"), "fall", "walk", SubResource("AnimationNodeStateMachineTransition_rs4eh"), "fall", "idle", SubResource("AnimationNodeStateMachineTransition_g8tfj"), "walk", "sit", SubResource("AnimationNodeStateMachineTransition_nffu4")]
 graph_offset = Vector2(-188, -85)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_00c23"]
-graph_offset = Vector2(-503.8696, 464.84576)
+graph_offset = Vector2(-128, 349)
 nodes/output/position = Vector2(680, 620)
 nodes/Locomotion/node = SubResource("AnimationNodeStateMachine_edheo")
 nodes/Locomotion/position = Vector2(40, 520)
@@ -88,10 +96,11 @@ script = ExtResource("2_rrbr8")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="character-alien" index="0" unique_id=728837389]
-bones/0/position = Vector3(0, 0.1, 0)
-bones/0/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
-bones/4/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
-bones/5/rotation = Quaternion(-0.7071068, 0, 0, 0.7071068)
+bones/0/position = Vector3(0, -0.15, 0)
+bones/1/rotation = Quaternion(-0.6087615, 0, 0, 0.7933534)
+bones/2/rotation = Quaternion(-0.6087615, 0, 0, 0.7933534)
+bones/4/rotation = Quaternion(0, 0, -0.3826835, 0.92387956)
+bones/5/rotation = Quaternion(0, 0, 0.3826835, 0.92387956)
 
 [node name="body-mesh" parent="character-alien/Skeleton3D" index="0" unique_id=1422371429]
 surface_material_override/0 = SubResource("StandardMaterial3D_rrbr8")

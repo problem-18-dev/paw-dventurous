@@ -1,3 +1,4 @@
+class_name PlayerAttackModule
 extends Node
 
 ## Emitted when an attack has been requested.
@@ -16,6 +17,7 @@ func _physics_process(_delta: float) -> void:
 		_attack()
 
 
+## Disables processing, cancels [member input_buffer] and [member attack_cooldown].
 func disable() -> void:
 	set_physics_process(false)
 	attack_cooldown.stop()

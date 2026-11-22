@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://dhwevqilw172s"]
+
+[ext_resource type="Script" uid="uid://d0ejxv2fqi26p" path="res://scenes/level/level_finish/finish_area.gd" id="1_dkr74"]
+[ext_resource type="Texture2D" uid="uid://dldkuvyub64kh" path="res://assets/prototype/checkboard.png" id="1_vf0qh"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_pqhpe"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_28b0b"]
+[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="6_pqhpe"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1xhu4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkr74"]
+albedo_color = Color(0.6838775, 0.70571595, 0.54658085, 1)
+albedo_texture = ExtResource("1_vf0qh")
+
+[sub_resource type="BoxMesh" id="BoxMesh_n340e"]
+material = SubResource("StandardMaterial3D_dkr74")
+size = Vector3(7, 0.25, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c7ty8"]
+size = Vector3(7, 0.25, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n340e"]
+albedo_color = Color(0.39321768, 0.5484829, 0.33381224, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1xhu4"]
+material = SubResource("StandardMaterial3D_n340e")
+height = 0.05
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dkr74"]
+height = 0.05
+
+[sub_resource type="Resource" id="Resource_23gcl"]
+script = ExtResource("5_28b0b")
+ease = 1
+
+[sub_resource type="Resource" id="Resource_28b0b"]
+script = ExtResource("6_pqhpe")
+fov = 80.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
+[node name="LevelFinishArea" type="Area3D" unique_id=1430603686]
+collision_layer = 2
+input_ray_pickable = false
+monitorable = false
+script = ExtResource("1_dkr74")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1142182866]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 1.25)
+shape = SubResource("WorldBoundaryShape3D_1xhu4")
+
+[node name="Platform" type="StaticBody3D" parent="." unique_id=17362339]
+collision_layer = 2
+collision_mask = 0
+input_ray_pickable = false
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform" unique_id=1867060326]
+mesh = SubResource("BoxMesh_n340e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform" unique_id=513236684]
+shape = SubResource("BoxShape3D_c7ty8")
+
+[node name="Plateau" type="StaticBody3D" parent="." unique_id=754693775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8043094, 0.15, -0.721724)
+collision_layer = 2
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Plateau" unique_id=931089305]
+mesh = SubResource("CylinderMesh_1xhu4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plateau" unique_id=792858152]
+shape = SubResource("CylinderShape3D_dkr74")
+
+[node name="FinishMarker" type="Marker3D" parent="Plateau" unique_id=2125648082]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.050000012, 0)
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=58652255]
+transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0, 2, 2.15)
+script = ExtResource("4_pqhpe")
+tween_resource = SubResource("Resource_23gcl")
+tween_on_load = false
+camera_3d_resource = SubResource("Resource_28b0b")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered" flags=6]

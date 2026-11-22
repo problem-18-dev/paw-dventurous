@@ -30,3 +30,7 @@ func attack() -> void:
 
 func die() -> void:
 	state_machine.travel(&"die")
+
+
+func sit() -> void:
+	state_machine.travel(&"sit")

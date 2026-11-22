@@ -2,6 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://cisy15wku6uda" path="res://scenes/level/base_level.tscn" id="1_8ldsh"]
 [ext_resource type="Script" uid="uid://betr5mbrvcxuf" path="res://scenes/level/base_level.gd" id="2_msmme"]
+[ext_resource type="PackedScene" uid="uid://dhwevqilw172s" path="res://scenes/level/level_finish/finish_area.tscn" id="3_sx5pf"]
+[ext_resource type="PackedScene" uid="uid://b7ugca3j4s6fi" path="res://scenes/enemy/enemy.tscn" id="4_cwdi5"]
+[ext_resource type="PackedScene" uid="uid://kpwo3xg8vv5j" path="res://scenes/destroyable/crate/crate.tscn" id="5_m2tpk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cwdi5"]
 
@@ -16,7 +19,7 @@ sky = SubResource("Sky_sx5pf")
 script = ExtResource("2_msmme")
 
 [node name="SpawnMarker3D" parent="." index="0" unique_id=459658787]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.049999952, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 33)
 gizmo_extents = 1.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="1" unique_id=1930571657]
@@ -25,9 +28,71 @@ transform = Transform3D(-0.33588138, 0.5694561, -0.75026894, -0.38116598, 0.6462
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2" unique_id=1382628412]
 environment = SubResource("Environment_msmme")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." index="3" unique_id=1796784663]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)
+[node name="CSGBox3D" type="CSGBox3D" parent="." index="3" unique_id=1941178495]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.0169966e-06, 0, 32.39045)
 use_collision = true
 collision_layer = 2
 collision_mask = 0
-size = Vector3(7, 0.1, 43)
+size = Vector3(7, 0.25, 6)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." index="4" unique_id=792991664]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.0000012, 0, 24.39045)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(3, 0.25, 6)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." index="5" unique_id=2117404474]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.9999987, 0, 24.39045)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(3, 0.25, 6)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." index="6" unique_id=863956555]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.308095e-07, 0, 15.39045)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(7, 0.25, 8)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="." index="7" unique_id=1902561004]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.1049558e-07, 0, 8.054774)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(3, 0.25, 3)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="." index="8" unique_id=521924730]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.476095e-07, 0, 3.0547743)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(3, 0.25, 3)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="." index="9" unique_id=381630029]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.847232e-07, 0, -1.9452248)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(3, 0.25, 3)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="." index="10" unique_id=322068153]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.6547599e-06, 0, -9.60955)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(7, 0.25, 8)
+
+[node name="LevelFinishArea" parent="." index="11" unique_id=1430603686 instance=ExtResource("3_sx5pf")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -1.785894e-06, 0.25, -11.10955)
+
+[node name="Enemy" parent="." index="12" unique_id=1548095246 instance=ExtResource("4_cwdi5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.37390137, 15.396269)
+positions = Array[Vector3]([Vector3(-2, 0.37390137, 15.396269), Vector3(2, 0.37390137, 15.396269)])
+
+[node name="Crate" parent="." index="13" unique_id=703298551 instance=ExtResource("5_m2tpk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06424904, 1, 7.7927017)
+
+[node name="Crate2" parent="." index="14" unique_id=738362049 instance=ExtResource("5_m2tpk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06424904, 1, 8.188315)

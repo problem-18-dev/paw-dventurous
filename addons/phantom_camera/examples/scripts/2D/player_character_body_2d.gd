@@ -12,8 +12,8 @@ const ACTION_STRINGNAME: StringName = "Action"
 const INPUT_MOVE_LEFT_STRINGNAME: StringName = "move_left"
 const INPUT_MOVE_RIGHT_STRINGNAME: StringName = "move_right"
 
-const SPEED = 350.0
-const JUMP_VELOCITY = -750.0
+@export var speed: float = 350.0
+const JUMP_VELOCITY: float = -750.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = 2400
@@ -124,19 +124,19 @@ func _physics_process(delta: float) -> void:
 	)
 
 	if input_dir:
-		velocity.x = input_dir * SPEED
+		velocity.x = input_dir * speed
 		if input_dir > 0:
 			_player_sprite.set_flip_h(false)
 		elif input_dir < 0:
 			_player_sprite.set_flip_h(true)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
 
 
 func _show_prompt(body_rid: RID, body: Node2D, body_shape_index: int, local_shape: int) -> void:
-	if body.is_class("TileMapLayer"): # TODO - Using string reference to support Godot 4.2
+	if body is TileMapLayer:
 		var tile_map := body
 		tile_map.set("physics_quadrant_size", 1) # Fix for Godot 4.4
 		var tile_coords: Vector2i = tile_map.get_coords_for_body_rid(body_rid)
@@ -160,9 +160,8 @@ func _show_prompt(body_rid: RID, body: Node2D, body_shape_index: int, local_shap
 
 
 func _hide_prompt(body_rid: RID, body: Node2D, body_shape_index: int, local_shape: int) -> void:
-	if body.is_class("TileMapLayer"): # TODO - Using string reference to support Godot 4.2
-		var tile_map := body
-
+	if body is TileMapLayer:
+		var tile_map: TileMapLayer = body
 		var tile_coords: Vector2i = tile_map.get_coords_for_body_rid(body_rid)
 		var cell_data: TileData = tile_map.get_cell_tile_data(tile_coords)
 
