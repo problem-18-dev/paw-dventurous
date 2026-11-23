@@ -40,9 +40,14 @@ func _physics_process(_delta: float) -> void:
 		_move_camera(BACKWARD_Z_OFFSET, backward_offset_time)
 
 
+## Stops any camera movement and disables processing.
 func disable() -> void:
 	_stop()
 	set_physics_process(false)
+
+
+func set_path(new_path: Path3D) -> void:
+	phantom_camera.set_follow_path(new_path)
 
 
 func _move_camera(target_offset: float, time: float) -> void:

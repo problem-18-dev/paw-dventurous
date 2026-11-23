@@ -18,9 +18,7 @@
 		{
 			"uuid": "7e6565ca-d0de-4825-aba2-3020d90d1aad",
 			"title": "Doing",
-			"tasks": [
-				"65e02326-fa63-4d47-b058-38376fec3306"
-			]
+			"tasks": []
 		},
 		{
 			"uuid": "8d19d83f-7fa8-42b9-8677-5fbf70a6b41b",
@@ -28,6 +26,8 @@
 			"tasks": [
 				"ff2ac180-b4d9-4d77-9885-94bc113a81b9",
 				"cfa4bf78-4bf6-4cff-9744-d7c483a7cca4",
+				"511efeaa-fb83-4d4f-8110-1a8f399d9a3b",
+				"65e02326-fa63-4d47-b058-38376fec3306",
 				"fdd7f399-5be8-4d3c-9fbc-447ac1a6afc9",
 				"03713ae0-0a59-4222-bcc2-87b5e1f706c9",
 				"b4b782a6-cab6-44c3-8c21-e07a96b02bb5",
@@ -131,11 +131,11 @@
 			"steps": [
 				{
 					"details": "End platform",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Celebratory announcement",
-					"done": false
+					"done": true
 				}
 			]
 		},
@@ -188,6 +188,34 @@
 			"description": "",
 			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
 			"steps": []
+		},
+		{
+			"uuid": "511efeaa-fb83-4d4f-8110-1a8f399d9a3b",
+			"title": "[Feat] Make camera path based",
+			"description": "Move away from camera stuck to player, and instead move the camera based on path(s) inside the level.\n\nEach section can have its own camera configuration, like rotation and offsets.",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": [
+				{
+					"details": "Each level has sections",
+					"done": true
+				},
+				{
+					"details": "Section has area",
+					"done": true
+				},
+				{
+					"details": "Section has path",
+					"done": true
+				},
+				{
+					"details": "Section has camera",
+					"done": true
+				},
+				{
+					"details": "Triggering section changes camera to follow path",
+					"done": true
+				}
+			]
 		}
 	],
 	"layout": {

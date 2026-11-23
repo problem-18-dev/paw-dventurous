@@ -4,7 +4,6 @@ extends CharacterBody3D
 @onready var fsm: StateMachine = $StateMachine
 @onready var model: PlayerModel = $Model
 @onready var jump_input_buffer: InputBuffer = $JumpInputBuffer
-@onready var camera: PlayerCamera = $Camera
 @onready var attack_module: PlayerAttackModule = %AttackModule
 @onready var turn_toward: TurnToward3D = %TurnToward
 @onready var ceiling_ray_casts: Array[RayCast3D] = [

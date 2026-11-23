@@ -5,27 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://cvejobxnu4ug1" path="res://scenes/common/components/node/state_machine/state_machine.tscn" id="3_gmlin"]
 [ext_resource type="PackedScene" uid="uid://vfgdrpcc3buk" path="res://scenes/common/components/3d/turn_toward_3d/turn_toward_3d.tscn" id="4_fm80t"]
 [ext_resource type="PackedScene" uid="uid://bqk0lgt6bdcfi" path="res://scenes/common/components/node/input_buffer/input_buffer.tscn" id="4_lvxji"]
-[ext_resource type="Script" uid="uid://c8ue55ot3obio" path="res://scenes/player/player_camera/player_camera.gd" id="6_5gtgg"]
-[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="7_5gtgg"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_h17s1"]
-[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="8_je7p5"]
 [ext_resource type="PackedScene" uid="uid://ccg6mrbc2vyf5" path="res://scenes/common/components/3d/blob_shadow_3d/blob_shadow_compat_3d.tscn" id="8_qek5x"]
 [ext_resource type="PackedScene" uid="uid://b50gkybrkvf72" path="res://scenes/player/player_modules/player_attack_module/player_attack.tscn" id="9_je7p5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gx1jg"]
 radius = 0.24
 height = 0.675
-
-[sub_resource type="Resource" id="Resource_je7p5"]
-script = ExtResource("8_h17s1")
-duration = 0.5
-ease = 1
-metadata/_custom_type_script = "uid://8umksf8e80fw"
-
-[sub_resource type="Resource" id="Resource_wq7k3"]
-script = ExtResource("8_je7p5")
-fov = 80.0
-metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
 [node name="Player" type="CharacterBody3D" unique_id=1638800477]
 collision_mask = 34
@@ -37,28 +22,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3375244, 0)
 shape = SubResource("CapsuleShape3D_gx1jg")
 
 [node name="Model" parent="." unique_id=46767332 instance=ExtResource("2_dovo2")]
-
-[node name="Camera" type="Node3D" parent="." unique_id=2096482025]
-script = ExtResource("6_5gtgg")
-
-[node name="PhantomCamera3D" type="Node3D" parent="Camera" unique_id=881898105 node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(0.9999995, 0, 0, 0, 0.8660253, 0.49999973, 0, -0.49999997, 0.8660249, 0, 1.8, 2.2)
-top_level = true
-script = ExtResource("7_5gtgg")
-priority = 10
-follow_mode = 2
-follow_target = NodePath("../..")
-tween_resource = SubResource("Resource_je7p5")
-camera_3d_resource = SubResource("Resource_wq7k3")
-follow_offset = Vector3(0, 1.8, 2.2)
-follow_damping = true
-follow_damping_value = Vector3(0, 0, 0)
-follow_axis_lock = 4
-vertical_rotation_offset = 0.3490658503988659
-collision_mask = 2
-align_transform_with_view = Callable()
-align_position_with_view = Callable()
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="BlobShadow" parent="." unique_id=1512808396 instance=ExtResource("8_qek5x")]
 

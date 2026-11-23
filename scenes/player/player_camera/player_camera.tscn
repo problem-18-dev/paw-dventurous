@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://du6uut0uvqxeh"]
+
+[ext_resource type="Script" uid="uid://c8ue55ot3obio" path="res://scenes/player/player_camera/player_camera.gd" id="1_tr5lh"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_j7bes"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_pua2v"]
+
+[sub_resource type="Resource" id="Resource_je7p5"]
+script = ExtResource("3_pua2v")
+duration = 0.5
+ease = 1
+metadata/_custom_type_script = "uid://8umksf8e80fw"
+
+[node name="Camera" type="Node3D" unique_id=1712227048]
+script = ExtResource("1_tr5lh")
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1329167270 node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(0.9999995, 0, 0, 0, 0.90630776, 0.42261806, 0, -0.42261827, 0.90630734, 0, 0, 0)
+top_level = true
+script = ExtResource("2_j7bes")
+priority = 1
+follow_mode = 4
+follow_target = NodePath("")
+tween_resource = SubResource("Resource_je7p5")
+tween_on_load = false
+follow_damping_value = Vector3(0, 0, 0)
+vertical_rotation_offset = 0.3490658503988659
+collision_mask = 2
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"

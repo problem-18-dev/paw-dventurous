@@ -1,6 +1,29 @@
 [gd_scene format=3 uid="uid://cisy15wku6uda"]
 
-[node name="BaseLevel" type="Node3D" unique_id=592541545]
+[ext_resource type="Script" uid="uid://betr5mbrvcxuf" path="res://scenes/level/base_level.gd" id="1_ebx1s"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_upopr"]
 
-[node name="SpawnMarker3D" type="Marker3D" parent="." unique_id=459658787]
+[node name="BaseLevel" type="Node3D" unique_id=592541545]
+script = ExtResource("1_ebx1s")
+
+[node name="SpawnMarker" type="Marker3D" parent="." unique_id=459658787]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Sections" type="Node3D" parent="." unique_id=349135863]
+
+[node name="Layout" type="Node3D" parent="." unique_id=560264427]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1863474677]
+physics_interpolation_mode = 2
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1074013568]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_upopr")
+interpolation_mode = 2
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=688554430]
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1856550816]

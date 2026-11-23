@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ceaacb5dy6b65"]
+
+[ext_resource type="Script" uid="uid://dckbum68ypv83" path="res://scenes/level/level_camera_section/camera_section.gd" id="1_rtcm7"]
+
+[node name="CameraSection" type="Node3D" unique_id=1997999844]
+script = ExtResource("1_rtcm7")

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CameraSectionConfigResource" format=3 uid="uid://gacut7kyrsn8"]
+
+[ext_resource type="Script" uid="uid://1llh3gchltgf" path="res://resources/camera_resource/camera_section_config_resource.gd" id="1_equdl"]
+
+[resource]
+script = ExtResource("1_equdl")
+rotation_degrees = Vector3(-25, 0, 0)
+metadata/_custom_type_script = "uid://1llh3gchltgf"

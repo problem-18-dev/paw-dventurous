@@ -1,6 +1,9 @@
 class_name Game
 extends Node
 
+@export_group("Debug")
+@export var override_level: LevelConfig.Level
+
 var _current_level: BaseLevel
 
 @onready var level_root: Node3D = %LevelRoot
@@ -32,14 +35,14 @@ func _load_level() -> void:
 		_current_level = null
 		await get_tree().process_frame
 
-	_current_level = LevelConfig.get_packed_level(LevelConfig.Level.LEVEL_ONE).instantiate()
+	var level_to_load := override_level if override_level else LevelConfig.Level.LEVEL_ONE
+	_current_level = LevelConfig.get_packed_level(level_to_load).instantiate()
 	level_root.add_child(_current_level)
 
 
 func _load_player() -> void:
 	var spawn_position := _current_level.get_player_spawn_position()
-	var player_packed := SceneConfig.get_packed_scene(SceneConfig.Scene.PLAYER)
-	var player: Player = player_packed.instantiate()
+	var player: Player = SceneConfig.get_packed_scene(SceneConfig.Scene.PLAYER).instantiate()
 	entity_root.add_child(player)
 
 	player.global_position = spawn_position

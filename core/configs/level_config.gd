@@ -2,10 +2,14 @@ class_name LevelConfig
 extends Object
 
 enum Level {
+	TEST_LEVEL,
 	LEVEL_ONE,
 }
 
-const LEVEL_UIDS := { Level.LEVEL_ONE: "uid://cp00sg7wweix1" }
+const LEVEL_UIDS := {
+	Level.TEST_LEVEL: "uid://cp00sg7wweix1",
+	Level.LEVEL_ONE: "uid://cp00sg7wweix1",
+}
 
 
 ## Returns UID for [param level].
