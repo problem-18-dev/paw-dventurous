@@ -2,6 +2,8 @@ class_name PlayerAirJump
 extends PlayerAir
 
 const JUMP_FORCE := 4.0
+const JUMP_CUT_DIVIDER := 0.7
+const DESTROYABLE_HIT_DOT := 0.8
 
 
 func enter(data := { }) -> void:
@@ -12,25 +14,25 @@ func enter(data := { }) -> void:
 
 
 func _check_changes() -> void:
-	_check_ceiling_collisions()
+	_check_collisions()
+
+	if Input.is_action_just_released(&"jump"):
+		player.velocity.y *= JUMP_CUT_DIVIDER
+		return
 
 	if player.velocity.y < 0:
 		finished.emit(PlayerAirFall)
 
 
-func _check_ceiling_collisions() -> void:
-	if not player.is_on_ceiling():
-		return
+func _check_collisions() -> void:
+	for i in player.get_slide_collision_count():
+		var collision := player.get_slide_collision(i)
+		var collider := collision.get_collider()
 
-	for ray_cast in player.ceiling_ray_casts:
-		if not ray_cast.is_colliding():
-			continue
-
-		var collider := ray_cast.get_collider()
-		# Technically not needed since collision mask is only on destroyables,
-		# but perhaps future might change that.
 		if not collider.is_in_group(GroupConfig.DESTROYABLE):
 			continue
 
-		var destroyable: Destroyable = collider
-		destroyable.hit()
+		# TODO: investigate whether hits should limit to a single one.
+		var normal := collision.get_normal()
+		if Vector3.DOWN.dot(normal) >= DESTROYABLE_HIT_DOT:
+			(collider as Destroyable).hit()

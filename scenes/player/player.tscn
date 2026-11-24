@@ -17,57 +17,13 @@ collision_mask = 34
 input_ray_pickable = false
 script = ExtResource("1_8afob")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1561185563]
+[node name="Shape" type="CollisionShape3D" parent="." unique_id=1561185563]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3375244, 0)
 shape = SubResource("CapsuleShape3D_gx1jg")
 
 [node name="Model" parent="." unique_id=46767332 instance=ExtResource("2_dovo2")]
 
 [node name="BlobShadow" parent="." unique_id=1512808396 instance=ExtResource("8_qek5x")]
-
-[node name="CeilingRayCasts" type="Node3D" parent="." unique_id=87042800]
-
-[node name="HeadFrontLeftRayCast" type="RayCast3D" parent="CeilingRayCasts" unique_id=280326308]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.675, -0.15)
-target_position = Vector3(0, 0.2, 0)
-collision_mask = 32
-
-[node name="HeadFrontRightRayCast" type="RayCast3D" parent="CeilingRayCasts" unique_id=1034618359]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.675, -0.15)
-target_position = Vector3(0, 0.2, 0)
-collision_mask = 32
-
-[node name="HeadRearLeftRayCast" type="RayCast3D" parent="CeilingRayCasts" unique_id=182436650]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.675, 0.15)
-target_position = Vector3(0, 0.2, 0)
-collision_mask = 32
-
-[node name="HeadRearRightRayCast" type="RayCast3D" parent="CeilingRayCasts" unique_id=1875655086]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.675, 0.15)
-target_position = Vector3(0, 0.2, 0)
-collision_mask = 32
-
-[node name="FloorRayCasts" type="Node3D" parent="." unique_id=1547447626]
-
-[node name="FloorFrontLeftRayCast" type="RayCast3D" parent="FloorRayCasts" unique_id=536459115]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0, -0.15)
-target_position = Vector3(0, -0.2, 0)
-collision_mask = 32
-
-[node name="FloorFrontRightRayCast" type="RayCast3D" parent="FloorRayCasts" unique_id=2089686742]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0, -0.15)
-target_position = Vector3(0, -0.2, 0)
-collision_mask = 32
-
-[node name="FloorRearLeftRayCast" type="RayCast3D" parent="FloorRayCasts" unique_id=527536957]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0, 0.15)
-target_position = Vector3(0, -0.2, 0)
-collision_mask = 32
-
-[node name="FloorRearRightRayCast" type="RayCast3D" parent="FloorRayCasts" unique_id=965272882]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0, 0.15)
-target_position = Vector3(0, -0.2, 0)
-collision_mask = 32
 
 [node name="Modules" type="Node" parent="." unique_id=1531732381]
 

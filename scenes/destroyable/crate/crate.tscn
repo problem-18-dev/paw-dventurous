@@ -1,14 +1,17 @@
 [gd_scene format=3 uid="uid://kpwo3xg8vv5j"]
 
 [ext_resource type="Script" uid="uid://dwgqqifq38slg" path="res://scenes/destroyable/crate/crate.gd" id="1_aofcf"]
-[ext_resource type="Texture2D" uid="uid://dldkuvyub64kh" path="res://assets/prototype/checkboard.png" id="1_xa5qw"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3iny0"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xa5qw"]
+load_path = "res://.godot/imported/checkboard.png-602527d850c59b1d96c2c2f0f0b3d220.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aofcf"]
 albedo_color = Color(0.7843131, 0.48212993, 5.7756904e-07, 1)
-albedo_texture = ExtResource("1_xa5qw")
+albedo_texture = SubResource("CompressedTexture2D_xa5qw")
 
-[sub_resource type="BoxMesh" id="BoxMesh_3iny0"]
-material = SubResource("StandardMaterial3D_3iny0")
+[sub_resource type="BoxMesh" id="BoxMesh_vhiiy"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_aofcf")
 size = Vector3(0.3, 0.3, 0.3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n340e"]
@@ -48,7 +51,7 @@ axis_lock_angular_z = true
 script = ExtResource("1_aofcf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1885556820]
-mesh = SubResource("BoxMesh_3iny0")
+mesh = SubResource("BoxMesh_vhiiy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=129687639]
 shape = SubResource("BoxShape3D_n340e")

@@ -59,13 +59,12 @@ sky_material = SubResource("ProceduralSkyMaterial_2741c")
 [sub_resource type="Environment" id="Environment_3qtrt"]
 background_mode = 2
 sky = SubResource("Sky_jopyy")
-tonemap_mode = 3
-tonemap_exposure = 1.2
+tonemap_mode = 2
 
 [node name="BasicLevelTest" unique_id=592541545 instance=ExtResource("1_13rds")]
 
 [node name="SpawnMarker" parent="." index="0" unique_id=459658787]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003610611, 0.625, 0.39560318)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 21)
 gizmo_extents = 1.0
 
 [node name="StartSection" parent="Sections" parent_id_path=PackedInt32Array(349135863) index="0" unique_id=1997999844 instance=ExtResource("2_wsl3p")]
@@ -314,7 +313,10 @@ fov = 80.0
 environment = SubResource("Environment_3qtrt")
 
 [node name="Sun" parent="." index="5" unique_id=1856550816]
-transform = Transform3D(1, 0, 0, 0, -0.757926, 0.6523406, 0, -0.6523406, -0.757926, -12, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -0.9825535, 0.1859805, 0, -0.1859805, -0.9825535, -12, 0, 0)
+light_color = Color(1, 0.78431374, 0.6313726, 1)
+shadow_enabled = true
+shadow_opacity = 0.75
 
 [node name="LevelFinishArea" parent="." index="6" unique_id=1430603686 instance=ExtResource("7_x2yfg")]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -1.785894e-06, 0.25, -26.10955)

@@ -2,22 +2,11 @@ class_name Player
 extends CharacterBody3D
 
 @onready var fsm: StateMachine = $StateMachine
+@onready var shape: CollisionShape3D = $Shape
 @onready var model: PlayerModel = $Model
 @onready var jump_input_buffer: InputBuffer = $JumpInputBuffer
 @onready var attack_module: PlayerAttackModule = %AttackModule
 @onready var turn_toward: TurnToward3D = %TurnToward
-@onready var ceiling_ray_casts: Array[RayCast3D] = [
-	$CeilingRayCasts/HeadFrontLeftRayCast,
-	$CeilingRayCasts/HeadFrontRightRayCast,
-	$CeilingRayCasts/HeadRearLeftRayCast,
-	$CeilingRayCasts/HeadRearRightRayCast,
-]
-@onready var floor_ray_casts: Array[RayCast3D] = [
-	$FloorRayCasts/FloorFrontLeftRayCast,
-	$FloorRayCasts/FloorFrontRightRayCast,
-	$FloorRayCasts/FloorRearLeftRayCast,
-	$FloorRayCasts/FloorRearRightRayCast,
-]
 
 
 func _init() -> void:

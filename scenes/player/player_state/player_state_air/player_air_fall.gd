@@ -1,42 +1,54 @@
 class_name PlayerAirFall
 extends PlayerAir
 
+const DESTROYABLE_BOUNCE_DOT := 0.5
+
 
 func enter(_data := { }) -> void:
 	player.model.fall()
 
 
 func _check_changes() -> void:
-	if not player.is_on_floor():
-		return
+	var should_bounce := _check_collisions()
 
-	var can_land := _check_floor_collisions()
-	if can_land:
+	if should_bounce:
+		_bounce()
+	else:
 		_check_landing()
 
 
-## Returns [code]true[/code] if player can land.
-func _check_floor_collisions() -> bool:
-	var colliding_ray_casts := _colliding_ray_casts()
+## Returns [code]true[/code] if player should bounce.
+func _check_collisions() -> bool:
+	var _should_bounce := false
 
-	if colliding_ray_casts.is_empty():
-		return true
+	for i in player.get_slide_collision_count():
+		var collision := player.get_slide_collision(i)
+		var collider := collision.get_collider()
 
-	var _has_bounced := false
-	for ray_cast in _colliding_ray_casts():
-		var collider := ray_cast.get_collider()
 		if not collider.is_in_group(GroupConfig.DESTROYABLE):
 			continue
 
-		(collider as Destroyable).bounce()
-		_has_bounced = true
+		var normal := collision.get_normal()
+		if Vector3.UP.dot(normal) > DESTROYABLE_BOUNCE_DOT:
+			(collider as Destroyable).bounce()
+			_should_bounce = true
 
-	if _has_bounced:
-		finished.emit(PlayerAirJump, { "force": 0.75 })
-	return not _has_bounced
+	return _should_bounce
+
+
+# TODO: Improve lesser force provide towards jump state.
+func _bounce() -> void:
+	if Input.is_action_pressed(&"jump"):
+		finished.emit(PlayerAirJump, { "force": 1.1 })
+		return
+
+	finished.emit(PlayerAirJump, { "force": 0.7 })
 
 
 func _check_landing() -> void:
+	if not player.is_on_floor():
+		return
+
 	if player.jump_input_buffer.is_buffered():
 		finished.emit(PlayerAirJump)
 		return
@@ -46,10 +58,3 @@ func _check_landing() -> void:
 		finished.emit(PlayerIdle)
 	else:
 		finished.emit(PlayerWalk)
-
-
-func _colliding_ray_casts() -> Array[RayCast3D]:
-	return player.floor_ray_casts.filter(
-		func(r: RayCast3D) -> bool:
-			return r.is_colliding(),
-	)
