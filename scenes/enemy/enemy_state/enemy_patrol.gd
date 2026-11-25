@@ -5,6 +5,9 @@ var _next_position: Vector3
 
 
 func enter(_data := { }) -> void:
+	if enemy.positions.is_empty():
+		return
+
 	_next_position = enemy.positions[enemy.next_position_pointer]
 
 

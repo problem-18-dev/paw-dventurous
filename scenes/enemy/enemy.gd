@@ -7,11 +7,14 @@ extends CharacterBody3D
 @export var positions: Array[Vector3] = []
 @export var reverse := false
 
+var is_flipped := false
 var previous_position_pointer := 0
 var next_position_pointer := 0
 
 @onready var fsm: StateMachine = $StateMachine
-@onready var turn_toward_3d: TurnToward3D = $TurnToward3D
+@onready var turn_toward: TurnToward3D = $TurnToward3D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var hitbox: Hitbox3D = $Hitbox3D
 
 
 func _get_configuration_warnings() -> PackedStringArray:
@@ -24,7 +27,12 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
-	if positions.size() == 0:
+	fsm.change_state(EnemyPatrol)
+
+
+func flip() -> void:
+	if is_flipped:
+		animation_player.play(&"bounce")
 		return
 
-	fsm.change_state(EnemyPatrol)
+	fsm.change_state(EnemyFlipped)

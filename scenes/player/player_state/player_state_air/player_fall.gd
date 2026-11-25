@@ -1,7 +1,7 @@
 class_name PlayerAirFall
 extends PlayerAir
 
-const DESTROYABLE_BOUNCE_DOT := 0.5
+const VALID_BOUNCE_THRESHOLD := 0.5
 
 
 func enter(_data := { }) -> void:
@@ -19,21 +19,28 @@ func _check_changes() -> void:
 
 ## Returns [code]true[/code] if player should bounce.
 func _check_collisions() -> bool:
-	var _should_bounce := false
+	var should_bounce := false
 
 	for i in player.get_slide_collision_count():
 		var collision := player.get_slide_collision(i)
 		var collider := collision.get_collider()
+		var normal := collision.get_normal()
 
-		if not collider.is_in_group(GroupConfig.DESTROYABLE):
+		if Vector3.UP.dot(normal) < VALID_BOUNCE_THRESHOLD:
 			continue
 
-		var normal := collision.get_normal()
-		if Vector3.UP.dot(normal) > DESTROYABLE_BOUNCE_DOT:
-			(collider as Destroyable).bounce()
-			_should_bounce = true
+		if collider is Enemy:
+			collider.flip()
+			return true
 
-	return _should_bounce
+		if collider is Destroyable:
+			collider.bounce()
+		else:
+			continue
+
+		should_bounce = true
+
+	return should_bounce
 
 
 # TODO: Improve lesser force provide towards jump state.

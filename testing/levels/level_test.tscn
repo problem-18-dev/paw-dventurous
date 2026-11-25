@@ -313,7 +313,7 @@ fov = 80.0
 environment = SubResource("Environment_3qtrt")
 
 [node name="Sun" parent="." index="5" unique_id=1856550816]
-transform = Transform3D(1, 0, 0, 0, -0.9825535, 0.1859805, 0, -0.1859805, -0.9825535, -12, 0, 0)
+transform = Transform3D(-0.5915061, -0.36427885, -0.71932024, -0.61237264, -0.37738737, 0.6946787, -0.52451897, 0.85139877, 0.00015248358, -12, 0, 0)
 light_color = Color(1, 0.78431374, 0.6313726, 1)
 shadow_enabled = true
 shadow_opacity = 0.75

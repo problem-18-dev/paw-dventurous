@@ -7,6 +7,8 @@ extends Area3D
 ## Emitted when a hit has been detected, provides [param hurtbox].
 signal hit(hurtbox: Hurtbox3D)
 
+## Enables hitbox.
+@export var enabled := true
 ## Damage to deal when a hit has been detected.
 @export var damage := 100
 ## Only registers a hit once if set to [code]true[/code].
@@ -28,7 +30,7 @@ func reset() -> void:
 
 
 func _on_area_entered(hurtbox: Hurtbox3D) -> void:
-	if (one_shot and _has_hit) or hurtbox.is_invincible:
+	if not enabled or (one_shot and _has_hit) or hurtbox.is_invincible:
 		return
 
 	_has_hit = true
