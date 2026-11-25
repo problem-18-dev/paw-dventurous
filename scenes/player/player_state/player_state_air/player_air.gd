@@ -39,3 +39,19 @@ func _handle_movement(delta: float) -> void:
 
 	player.velocity.x = move_toward(player.velocity.x, 0, DECELERATION * delta)
 	player.velocity.z = move_toward(player.velocity.z, 0, DECELERATION * delta)
+
+
+## Checks whether player has landed, proceeds to next state based on input.
+func _check_landing() -> void:
+	if not player.is_on_floor():
+		return
+
+	if player.jump_input_buffer.is_buffered():
+		finished.emit(PlayerAirJump)
+		return
+
+	var direction := player.get_direction()
+	if is_zero_approx(direction.length_squared()):
+		finished.emit(PlayerIdle)
+	else:
+		finished.emit(PlayerWalk)

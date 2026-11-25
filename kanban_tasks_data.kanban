@@ -18,7 +18,9 @@
 		{
 			"uuid": "7e6565ca-d0de-4825-aba2-3020d90d1aad",
 			"title": "Doing",
-			"tasks": []
+			"tasks": [
+				"07fdbf69-07b4-4d78-9498-650e5caf3028"
+			]
 		},
 		{
 			"uuid": "8d19d83f-7fa8-42b9-8677-5fbf70a6b41b",
@@ -26,6 +28,7 @@
 			"tasks": [
 				"ff2ac180-b4d9-4d77-9885-94bc113a81b9",
 				"cfa4bf78-4bf6-4cff-9744-d7c483a7cca4",
+				"c486e23d-2474-46ba-be59-88b13cdd8857",
 				"511efeaa-fb83-4d4f-8110-1a8f399d9a3b",
 				"65e02326-fa63-4d47-b058-38376fec3306",
 				"fdd7f399-5be8-4d3c-9fbc-447ac1a6afc9",
@@ -214,6 +217,58 @@
 				{
 					"details": "Triggering section changes camera to follow path",
 					"done": true
+				}
+			]
+		},
+		{
+			"uuid": "c486e23d-2474-46ba-be59-88b13cdd8857",
+			"title": "[Feat] Consistent player sizing",
+			"description": "",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": [
+				{
+					"details": "Playable level area is 7m wide.",
+					"done": true
+				},
+				{
+					"details": "Player is 1m long, 0.5m wide, 0.5m tall.",
+					"done": true
+				},
+				{
+					"details": "Box is 0.4m large",
+					"done": true
+				}
+			]
+		},
+		{
+			"uuid": "07fdbf69-07b4-4d78-9498-650e5caf3028",
+			"title": "[Feat] Enemy improvement",
+			"description": "",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": [
+				{
+					"details": "Enemy is 0.4 tall.",
+					"done": false
+				},
+				{
+					"details": "Enemy is 0.6m large.",
+					"done": false
+				},
+				{
+					"details": "Enemy flips when jumped on.",
+					"done": false
+				},
+				{
+					"details": "Enemy acts as trampoline when flipped.",
+					"done": false
+				},
+				{
+					"details": "Enemy hurts player when touched normally.",
+					"done": false
+				},
+				{
+					"details": "Enemy shoots away when attacked.",
+					"done": false
 				}
 			]
 		}

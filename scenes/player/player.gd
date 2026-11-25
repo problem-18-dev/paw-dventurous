@@ -4,9 +4,12 @@ extends CharacterBody3D
 @onready var fsm: StateMachine = $StateMachine
 @onready var shape: CollisionShape3D = $Shape
 @onready var model: PlayerModel = $Model
-@onready var jump_input_buffer: InputBuffer = $JumpInputBuffer
+@onready var hurtbox: Hurtbox3D = $Hurtbox3D
 @onready var attack_module: PlayerAttackModule = %AttackModule
+@onready var invincibility_module: PlayerInvinciblityModule = %InvincibilityModule
+@onready var flicker: Flicker = %FlickerModule
 @onready var turn_toward: TurnToward3D = %TurnToward
+@onready var jump_input_buffer: InputBuffer = $JumpInputBuffer
 
 
 func _init() -> void:
@@ -29,3 +32,11 @@ func finish_at(destination: Vector3) -> void:
 
 func _on_player_attack_module_attack_requested() -> void:
 	model.attack()
+
+
+func _on_hurtbox_3d_hit_taken(hitbox: Hitbox3D) -> void:
+	fsm.change_state(PlayerHurt, { "hitbox": hitbox })
+
+
+func _on_invincibility_module_finished() -> void:
+	flicker.disable()

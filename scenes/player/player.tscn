@@ -5,30 +5,53 @@
 [ext_resource type="PackedScene" uid="uid://cvejobxnu4ug1" path="res://scenes/common/components/node/state_machine/state_machine.tscn" id="3_gmlin"]
 [ext_resource type="PackedScene" uid="uid://vfgdrpcc3buk" path="res://scenes/common/components/3d/turn_toward_3d/turn_toward_3d.tscn" id="4_fm80t"]
 [ext_resource type="PackedScene" uid="uid://bqk0lgt6bdcfi" path="res://scenes/common/components/node/input_buffer/input_buffer.tscn" id="4_lvxji"]
+[ext_resource type="PackedScene" uid="uid://b7dr7mml2kisr" path="res://scenes/common/components/node/flicker/flicker.tscn" id="7_5gtgg"]
+[ext_resource type="PackedScene" uid="uid://cfjgu7jniagm7" path="res://scenes/common/components/3d/hurtbox_3d/hurtbox_3d.tscn" id="8_5gtgg"]
+[ext_resource type="PackedScene" uid="uid://b1eod3d2775ts" path="res://scenes/player/player_modules/player_invincibility_module/player_invincibility_module.tscn" id="8_h17s1"]
 [ext_resource type="PackedScene" uid="uid://ccg6mrbc2vyf5" path="res://scenes/common/components/3d/blob_shadow_3d/blob_shadow_compat_3d.tscn" id="8_qek5x"]
 [ext_resource type="PackedScene" uid="uid://b50gkybrkvf72" path="res://scenes/player/player_modules/player_attack_module/player_attack.tscn" id="9_je7p5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gx1jg"]
-radius = 0.24
-height = 0.675
+radius = 0.2
+height = 0.63750005
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qek5x"]
+radius = 0.22
+height = 0.6
 
 [node name="Player" type="CharacterBody3D" unique_id=1638800477]
-collision_mask = 34
+collision_mask = 50
 input_ray_pickable = false
 script = ExtResource("1_8afob")
 
 [node name="Shape" type="CollisionShape3D" parent="." unique_id=1561185563]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3375244, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31877443, 0)
 shape = SubResource("CapsuleShape3D_gx1jg")
 
 [node name="Model" parent="." unique_id=46767332 instance=ExtResource("2_dovo2")]
 
 [node name="BlobShadow" parent="." unique_id=1512808396 instance=ExtResource("8_qek5x")]
+ray_cast_mask = 50
+
+[node name="Hurtbox3D" parent="." unique_id=433787464 instance=ExtResource("8_5gtgg")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox3D" unique_id=1269734856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33921483, 0)
+shape = SubResource("CapsuleShape3D_qek5x")
+debug_color = Color(0, 1, 0.20000005, 0.41960785)
 
 [node name="Modules" type="Node" parent="." unique_id=1531732381]
 
 [node name="AttackModule" parent="Modules" unique_id=1272257980 instance=ExtResource("9_je7p5")]
 unique_name_in_owner = true
+
+[node name="FlickerModule" parent="Modules" unique_id=1934246467 node_paths=PackedStringArray("flicker_target") instance=ExtResource("7_5gtgg")]
+unique_name_in_owner = true
+flicker_target = NodePath("../../Model")
+
+[node name="InvincibilityModule" parent="Modules" unique_id=598091993 node_paths=PackedStringArray("hurtbox") instance=ExtResource("8_h17s1")]
+unique_name_in_owner = true
+hurtbox = NodePath("../../Hurtbox3D")
 
 [node name="TurnToward" parent="Modules" unique_id=1642116734 node_paths=PackedStringArray("target") instance=ExtResource("4_fm80t")]
 unique_name_in_owner = true
@@ -40,4 +63,6 @@ target = NodePath("../..")
 action_name = &"jump"
 buffer_time = 0.1
 
+[connection signal="hit_taken" from="Hurtbox3D" to="." method="_on_hurtbox_3d_hit_taken"]
 [connection signal="attack_requested" from="Modules/AttackModule" to="." method="_on_player_attack_module_attack_requested"]
+[connection signal="finished" from="Modules/InvincibilityModule" to="." method="_on_invincibility_module_finished"]

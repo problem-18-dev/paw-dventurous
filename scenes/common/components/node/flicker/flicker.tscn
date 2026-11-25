@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b7dr7mml2kisr"]
+
+[ext_resource type="Script" uid="uid://cf6wbs4fcg122" path="res://scenes/common/components/node/flicker/flicker.gd" id="1_d5myu"]
+
+[node name="Flicker" type="Node" unique_id=1934246467]
+script = ExtResource("1_d5myu")

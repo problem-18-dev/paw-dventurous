@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b1eod3d2775ts"]
+
+[ext_resource type="Script" uid="uid://b4nsx3aux85mc" path="res://scenes/player/player_modules/player_invincibility_module/player_invincibility_module.gd" id="1_ock2n"]
+
+[node name="PlayerInvincibilityModule" type="Node" unique_id=598091993]
+script = ExtResource("1_ock2n")
+
+[node name="Timer" type="Timer" parent="." unique_id=1528197292]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

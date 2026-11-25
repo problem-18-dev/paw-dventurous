@@ -43,18 +43,3 @@ func _bounce() -> void:
 		return
 
 	finished.emit(PlayerAirJump, { "force": 0.7 })
-
-
-func _check_landing() -> void:
-	if not player.is_on_floor():
-		return
-
-	if player.jump_input_buffer.is_buffered():
-		finished.emit(PlayerAirJump)
-		return
-
-	var direction := player.get_direction()
-	if is_zero_approx(direction.length_squared()):
-		finished.emit(PlayerIdle)
-	else:
-		finished.emit(PlayerWalk)

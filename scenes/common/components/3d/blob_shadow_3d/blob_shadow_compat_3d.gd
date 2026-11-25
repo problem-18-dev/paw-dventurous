@@ -8,6 +8,8 @@ extends Node3D
 @export var min_size := 0.4
 ## How large the blob may get when object is on the floor.
 @export var max_size := 1.0
+@export_group("Collision")
+@export_flags_3d_physics var ray_cast_mask := 2
 
 @onready var _ray_cast: RayCast3D = $RayCast3D
 @onready var _blob_shadow: MeshInstance3D = $BlobShadow
@@ -24,6 +26,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint() or not parent:
 		return
 
+	_ray_cast.collision_mask = ray_cast_mask
 	_ray_cast.add_exception(parent)
 
 
