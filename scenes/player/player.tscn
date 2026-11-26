@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cvejobxnu4ug1" path="res://scenes/common/components/node/state_machine/state_machine.tscn" id="3_gmlin"]
 [ext_resource type="PackedScene" uid="uid://vfgdrpcc3buk" path="res://scenes/common/components/3d/turn_toward_3d/turn_toward_3d.tscn" id="4_fm80t"]
 [ext_resource type="PackedScene" uid="uid://bqk0lgt6bdcfi" path="res://scenes/common/components/node/input_buffer/input_buffer.tscn" id="4_lvxji"]
+[ext_resource type="PackedScene" uid="uid://dxtmtebfqe5cj" path="res://scenes/common/components/3d/hitbox_3d/hitbox_3d.tscn" id="5_je7p5"]
+[ext_resource type="Script" uid="uid://deft2pccn0joj" path="res://scenes/player/player_modules/player_hitbox/player_hitbox.gd" id="6_fm80t"]
 [ext_resource type="PackedScene" uid="uid://b7dr7mml2kisr" path="res://scenes/common/components/node/flicker/flicker.tscn" id="7_5gtgg"]
 [ext_resource type="PackedScene" uid="uid://cfjgu7jniagm7" path="res://scenes/common/components/3d/hurtbox_3d/hurtbox_3d.tscn" id="8_5gtgg"]
 [ext_resource type="PackedScene" uid="uid://b1eod3d2775ts" path="res://scenes/player/player_modules/player_invincibility_module/player_invincibility_module.tscn" id="8_h17s1"]
@@ -19,8 +21,12 @@ height = 0.63750005
 radius = 0.22
 height = 0.6
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fm80t"]
+radius = 0.4
+height = 0.8
+
 [node name="Player" type="CharacterBody3D" unique_id=1638800477]
-collision_mask = 50
+collision_mask = 98
 input_ray_pickable = false
 script = ExtResource("1_8afob")
 
@@ -38,7 +44,17 @@ ray_cast_mask = 50
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox3D" unique_id=1269734856]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33921483, 0)
 shape = SubResource("CapsuleShape3D_qek5x")
-debug_color = Color(0, 1, 0.20000005, 0.41960785)
+debug_color = Color(0, 1, 0.2, 1)
+
+[node name="Hitbox3D" parent="." unique_id=206649358 instance=ExtResource("5_je7p5")]
+collision_mask = 24
+script = ExtResource("6_fm80t")
+enabled = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox3D" unique_id=1084623710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33750004, 0)
+shape = SubResource("CapsuleShape3D_fm80t")
+debug_color = Color(1, 0, 0, 1)
 
 [node name="Modules" type="Node" parent="." unique_id=1531732381]
 
@@ -64,5 +80,7 @@ action_name = &"jump"
 buffer_time = 0.1
 
 [connection signal="hit_taken" from="Hurtbox3D" to="." method="_on_hurtbox_3d_hit_taken"]
+[connection signal="area_exited" from="Hitbox3D" to="Hitbox3D" method="_on_area_exited"]
 [connection signal="attack_requested" from="Modules/AttackModule" to="." method="_on_player_attack_module_attack_requested"]
+[connection signal="finished" from="Modules/AttackModule" to="." method="_on_attack_module_finished"]
 [connection signal="finished" from="Modules/InvincibilityModule" to="." method="_on_invincibility_module_finished"]

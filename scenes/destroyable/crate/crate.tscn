@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://kpwo3xg8vv5j"]
 
 [ext_resource type="Script" uid="uid://dwgqqifq38slg" path="res://scenes/destroyable/crate/crate.gd" id="1_aofcf"]
+[ext_resource type="PackedScene" uid="uid://cfjgu7jniagm7" path="res://scenes/common/components/3d/hurtbox_3d/hurtbox_3d.tscn" id="2_aofcf"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xa5qw"]
 load_path = "res://.godot/imported/checkboard.png-602527d850c59b1d96c2c2f0f0b3d220.s3tc.ctex"
@@ -16,6 +17,9 @@ size = Vector3(0.3, 0.3, 0.3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n340e"]
 size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1xhu4"]
+size = Vector3(0.4, 0.4, 0.4)
 
 [sub_resource type="Animation" id="Animation_aofcf"]
 resource_name = "bounce"
@@ -56,5 +60,13 @@ mesh = SubResource("BoxMesh_vhiiy")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=129687639]
 shape = SubResource("BoxShape3D_n340e")
 
+[node name="Hurtbox3D" parent="." unique_id=433787464 instance=ExtResource("2_aofcf")]
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox3D" unique_id=2003122610]
+shape = SubResource("BoxShape3D_1xhu4")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=645751525]
 libraries/ = SubResource("AnimationLibrary_vhiiy")
+
+[connection signal="hit_taken" from="Hurtbox3D" to="." method="_on_hurtbox_3d_hit_taken"]

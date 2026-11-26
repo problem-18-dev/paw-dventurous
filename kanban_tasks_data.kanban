@@ -11,6 +11,8 @@
 			"uuid": "eaa0e386-fe39-4799-9d2a-a43397b8cd9d",
 			"title": "Todo",
 			"tasks": [
+				"021a9fd2-46d0-4f08-bc77-a558c6c82145",
+				"1b40ef6c-ea68-4663-8540-301835b571d5",
 				"6478e45c-d78e-42c3-83d7-0508fa771d44",
 				"f9ed828c-bbed-4134-8bc1-d9d16b19ca9d"
 			]
@@ -18,9 +20,7 @@
 		{
 			"uuid": "7e6565ca-d0de-4825-aba2-3020d90d1aad",
 			"title": "Doing",
-			"tasks": [
-				"07fdbf69-07b4-4d78-9498-650e5caf3028"
-			]
+			"tasks": []
 		},
 		{
 			"uuid": "8d19d83f-7fa8-42b9-8677-5fbf70a6b41b",
@@ -28,6 +28,8 @@
 			"tasks": [
 				"ff2ac180-b4d9-4d77-9885-94bc113a81b9",
 				"cfa4bf78-4bf6-4cff-9744-d7c483a7cca4",
+				"07fdbf69-07b4-4d78-9498-650e5caf3028",
+				"a5c0de8c-b02b-4266-839b-ea364e96d3e9",
 				"c486e23d-2474-46ba-be59-88b13cdd8857",
 				"511efeaa-fb83-4d4f-8110-1a8f399d9a3b",
 				"65e02326-fa63-4d47-b058-38376fec3306",
@@ -248,26 +250,86 @@
 			"steps": [
 				{
 					"details": "Enemy is 0.4 tall.",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Enemy is 0.6m large.",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Enemy flips when jumped on.",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Enemy acts as trampoline when flipped.",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Enemy hurts player when touched normally.",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Enemy shoots away when attacked.",
+					"done": true
+				}
+			]
+		},
+		{
+			"uuid": "a5c0de8c-b02b-4266-839b-ea364e96d3e9",
+			"title": "[Feat] Player attack",
+			"description": "",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": [
+				{
+					"details": "Player hitbox activates on attack",
+					"done": true
+				},
+				{
+					"details": "Player shoots away enemy when attacking",
+					"done": true
+				},
+				{
+					"details": "Player can attack anytime during movement",
+					"done": true
+				},
+				{
+					"details": "Destroyables are affected too.",
+					"done": true
+				}
+			]
+		},
+		{
+			"uuid": "021a9fd2-46d0-4f08-bc77-a558c6c82145",
+			"title": "[Feat] Moving obstacle",
+			"description": "The level should have a \"sweeping obstacle\".\n\nA sweeping obstacle is a dangerous object moving from left to right and vice versa, player has to time moving forward to move along.\n\nIdea: Mom sweeping a mop aka cleaning, door opening and closing.",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": [
+				{
+					"details": "Obstacle moves between left and right",
+					"done": false
+				},
+				{
+					"details": "Obstacle damages if player struck",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "1b40ef6c-ea68-4663-8540-301835b571d5",
+			"title": "[Feat] Falling obstacle",
+			"description": "A timed obstacle falling from the ceiling.\n\nThis obstacle has multiple projectiles in a horizontal line, falling vertically to the floor at random spawns and times.\n\nIdea: Kitchen knives falling from the kitchen rack.",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": [
+				{
+					"details": "Obstacle has projectiles",
+					"done": false
+				},
+				{
+					"details": "Projectiles fall on floor and disappear",
+					"done": false
+				},
+				{
+					"details": "Projectiles hurt player",
 					"done": false
 				}
 			]

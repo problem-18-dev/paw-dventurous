@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cvejobxnu4ug1" path="res://scenes/common/components/node/state_machine/state_machine.tscn" id="1_4a83h"]
 [ext_resource type="Script" uid="uid://csmkgvxehm3n3" path="res://scenes/enemy/enemy.gd" id="1_40wdo"]
+[ext_resource type="PackedScene" uid="uid://cfjgu7jniagm7" path="res://scenes/common/components/3d/hurtbox_3d/hurtbox_3d.tscn" id="2_gl05p"]
 [ext_resource type="PackedScene" uid="uid://vfgdrpcc3buk" path="res://scenes/common/components/3d/turn_toward_3d/turn_toward_3d.tscn" id="4_tjssy"]
 [ext_resource type="PackedScene" uid="uid://dxtmtebfqe5cj" path="res://scenes/common/components/3d/hitbox_3d/hitbox_3d.tscn" id="5_gl05p"]
 
@@ -35,8 +36,11 @@ size = Vector3(0.1, 0.1, 0.1)
 height = 0.25
 radius = 0.35
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cwlon"]
+height = 0.34750003
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gl05p"]
-height = 0.19
+height = 0.18533203
 radius = 0.4
 
 [sub_resource type="Animation" id="Animation_tjssy"]
@@ -142,7 +146,7 @@ _data = {
 }
 
 [node name="Enemy" type="CharacterBody3D" unique_id=1548095246]
-collision_layer = 16
+collision_layer = 32
 collision_mask = 2
 input_ray_pickable = false
 script = ExtResource("1_40wdo")
@@ -175,12 +179,20 @@ mesh = SubResource("BoxMesh_tjssy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02592773, 0)
 shape = SubResource("CylinderShape3D_tjssy")
 
+[node name="Hurtbox3D" parent="." unique_id=433787464 instance=ExtResource("2_gl05p")]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox3D" unique_id=1718963365]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.026250005, 0)
+shape = SubResource("CylinderShape3D_cwlon")
+debug_color = Color(0, 1, 0.26666668, 1)
+
 [node name="Hitbox3D" parent="." unique_id=206649358 instance=ExtResource("5_gl05p")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox3D" unique_id=952086879]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0051464885, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.007666016, 0)
 shape = SubResource("CylinderShape3D_gl05p")
-debug_color = Color(1, 0, 0.016666412, 0.41960785)
+debug_color = Color(1, 0, 0.015686275, 1)
 
 [node name="TurnToward3D" parent="." unique_id=1642116734 node_paths=PackedStringArray("target") instance=ExtResource("4_tjssy")]
 target = NodePath("..")
@@ -190,3 +202,5 @@ target = NodePath("..")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=515504055]
 callback_mode_process = 0
 libraries/ = SubResource("AnimationLibrary_cwlon")
+
+[connection signal="hit_taken" from="Hurtbox3D" to="." method="_on_hurtbox_3d_hit_taken"]

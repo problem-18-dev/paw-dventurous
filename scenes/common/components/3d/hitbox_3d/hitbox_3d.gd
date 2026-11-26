@@ -9,12 +9,6 @@ signal hit(hurtbox: Hurtbox3D)
 
 ## Enables hitbox.
 @export var enabled := true
-## Damage to deal when a hit has been detected.
-@export var damage := 100
-## Only registers a hit once if set to [code]true[/code].
-@export var one_shot := false
-
-var _has_hit := false
 
 
 func _get_configuration_warnings() -> PackedStringArray:
@@ -24,15 +18,19 @@ func _get_configuration_warnings() -> PackedStringArray:
 	return []
 
 
-## Only useful if [member one_shot] is set to true. Resets the hit flag.
-func reset() -> void:
-	_has_hit = false
+## Enables hitbox.
+func enable() -> void:
+	enabled = true
+
+
+## Disables hitbox.
+func disable() -> void:
+	enabled = false
 
 
 func _on_area_entered(hurtbox: Hurtbox3D) -> void:
-	if not enabled or (one_shot and _has_hit) or hurtbox.is_invincible:
+	if not enabled:
 		return
 
-	_has_hit = true
 	hurtbox.take_hit(self)
 	hit.emit(hurtbox)

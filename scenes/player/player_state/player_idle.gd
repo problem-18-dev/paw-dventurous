@@ -18,7 +18,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _handle_movement() -> void:
-	var direction := player.get_direction()
+	var direction := _get_direction()
 
 	if not is_zero_approx(direction.length_squared()):
 		finished.emit(PlayerWalk)

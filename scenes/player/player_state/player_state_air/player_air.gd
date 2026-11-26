@@ -22,7 +22,7 @@ func _physics_update(delta: float) -> void:
 
 ## Handles player movement in-air, to be used for all inheriting [PlayerAir] states.
 func _handle_movement(delta: float) -> void:
-	var direction := player.get_direction()
+	var direction := _get_direction()
 
 	if not is_zero_approx(direction.length_squared()):
 		player.velocity.x = move_toward(
@@ -50,7 +50,7 @@ func _check_landing() -> void:
 		finished.emit(PlayerAirJump)
 		return
 
-	var direction := player.get_direction()
+	var direction := _get_direction()
 	if is_zero_approx(direction.length_squared()):
 		finished.emit(PlayerIdle)
 	else:

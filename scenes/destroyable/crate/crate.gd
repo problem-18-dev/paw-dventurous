@@ -18,3 +18,7 @@ func hit() -> void:
 func destroy() -> void:
 	Log.info("Crate destroyed!")
 	queue_free()
+
+
+func _on_hurtbox_3d_hit_taken(_hitbox: Hitbox3D) -> void:
+	destroy()

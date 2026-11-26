@@ -21,7 +21,10 @@ func _handle_movement(delta: float) -> void:
 	if enemy.positions.is_empty():
 		return
 
-	var distance := enemy.global_position.distance_to(_next_position)
+	# Only consider horizontal distance, physics should handle hills.
+	var enemy_position := Vector2(enemy.global_position.x, enemy.global_position.z)
+	var destination := Vector2(_next_position.x, _next_position.z)
+	var distance := enemy_position.distance_to(destination)
 	var snap_distance := enemy.speed * delta
 	var is_at_position := distance < snap_distance
 
@@ -29,13 +32,19 @@ func _handle_movement(delta: float) -> void:
 		_arrive()
 		return
 
-	var direction := enemy.global_position.direction_to(_next_position)
+	var direction := enemy_position.direction_to(destination)
 	enemy.velocity.x = direction.x * enemy.speed
-	enemy.velocity.z = direction.z * enemy.speed
+	enemy.velocity.z = direction.y * enemy.speed
 
 
+## Snaps global position to horizontal equivalent of the next position.
 func _arrive() -> void:
-	enemy.global_position = _next_position
+	enemy.global_position = Vector3(_next_position.x, enemy.global_position.y, _next_position.z)
 	enemy.previous_position_pointer = enemy.next_position_pointer
-	enemy.next_position_pointer = wrapi(enemy.next_position_pointer + 1, 0, enemy.positions.size())
+	var next := -1 if enemy.reverse else 1
+	enemy.next_position_pointer = wrapi(
+		enemy.next_position_pointer + next,
+		0,
+		enemy.positions.size(),
+	)
 	finished.emit(EnemyTurn)

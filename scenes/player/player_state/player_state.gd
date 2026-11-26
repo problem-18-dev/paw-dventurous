@@ -9,6 +9,11 @@ func set_parent(new_parent: Node) -> void:
 	player = new_parent
 
 
+## Returns [Vector2] direction, X is left/right, Y is forward/backward. Negative Y means forward.
+func _get_direction() -> Vector2:
+	return Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+
+
 ## Applies gravity when [member player] not on floor.
 func _apply_gravity(delta: float) -> void:
 	if player.is_on_floor():
@@ -19,7 +24,7 @@ func _apply_gravity(delta: float) -> void:
 
 ## Handles rotation of model based on input.
 func _handle_rotation(weight := 0.25) -> void:
-	var direction := player.get_direction()
+	var direction := _get_direction()
 
 	if is_zero_approx(direction.length_squared()):
 		return

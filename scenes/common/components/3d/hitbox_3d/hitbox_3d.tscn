@@ -4,7 +4,7 @@
 
 [node name="Hitbox3D" type="Area3D" unique_id=206649358]
 process_mode = 1
-collision_layer = 8
+collision_layer = 0
 collision_mask = 4
 input_ray_pickable = false
 monitorable = false

@@ -6,12 +6,9 @@
 [node name="BaseLevel" type="Node3D" unique_id=592541545]
 script = ExtResource("1_ebx1s")
 
-[node name="SpawnMarker" type="Marker3D" parent="." unique_id=459658787]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=688554430]
 
-[node name="Sections" type="Node3D" parent="." unique_id=349135863]
-
-[node name="Layout" type="Node3D" parent="." unique_id=560264427]
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1856550816]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1863474677]
 physics_interpolation_mode = 2
@@ -24,6 +21,15 @@ script = ExtResource("2_upopr")
 interpolation_mode = 2
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=688554430]
+[node name="SpawnMarker" type="Marker3D" parent="." unique_id=459658787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1856550816]
+[node name="Sections" type="Node3D" parent="." unique_id=349135863]
+
+[node name="Geometry" type="Node3D" parent="." unique_id=560264427]
+
+[node name="Traps" type="Node3D" parent="." unique_id=771003753]
+
+[node name="Pickuppables" type="Node3D" parent="." unique_id=2143827071]
+
+[node name="EnemySpawners" type="Node3D" parent="." unique_id=1669078308]

@@ -12,9 +12,12 @@ var previous_position_pointer := 0
 var next_position_pointer := 0
 
 @onready var fsm: StateMachine = $StateMachine
+@onready var shape: CollisionShape3D = $Shape
+@onready var model: Node3D = $Model
 @onready var turn_toward: TurnToward3D = $TurnToward3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hitbox: Hitbox3D = $Hitbox3D
+@onready var hurtbox: Hurtbox3D = $Hurtbox3D
 
 
 func _get_configuration_warnings() -> PackedStringArray:
@@ -27,7 +30,11 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
-	fsm.change_state(EnemyPatrol)
+	if reverse and positions.size() > 1:
+		next_position_pointer = positions.size() - 1
+		previous_position_pointer = 0
+
+	fsm.change_state(EnemyTurn)
 
 
 func flip() -> void:
@@ -36,3 +43,7 @@ func flip() -> void:
 		return
 
 	fsm.change_state(EnemyFlipped)
+
+
+func _on_hurtbox_3d_hit_taken(hitbox_taken: Hitbox3D) -> void:
+	fsm.change_state(EnemyDead, { "hitbox": hitbox_taken })

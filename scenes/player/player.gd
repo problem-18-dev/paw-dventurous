@@ -5,6 +5,7 @@ extends CharacterBody3D
 @onready var shape: CollisionShape3D = $Shape
 @onready var model: PlayerModel = $Model
 @onready var hurtbox: Hurtbox3D = $Hurtbox3D
+@onready var hitbox: Hitbox3D = $Hitbox3D
 @onready var attack_module: PlayerAttackModule = %AttackModule
 @onready var invincibility_module: PlayerInvinciblityModule = %InvincibilityModule
 @onready var flicker: Flicker = %FlickerModule
@@ -20,11 +21,6 @@ func _ready() -> void:
 	fsm.change_state(PlayerAirFall)
 
 
-## Returns [Vector2] direction, X is left/right, Y is forward/backward. Negative Y means forward.
-func get_direction() -> Vector2:
-	return Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-
-
 ## Makes player walk towards a certain destination, and enter finish state.
 func finish_at(destination: Vector3) -> void:
 	fsm.change_state(PlayerFinish, { "destination": destination })
@@ -32,11 +28,16 @@ func finish_at(destination: Vector3) -> void:
 
 func _on_player_attack_module_attack_requested() -> void:
 	model.attack()
+	hitbox.enable()
 
 
-func _on_hurtbox_3d_hit_taken(hitbox: Hitbox3D) -> void:
-	fsm.change_state(PlayerHurt, { "hitbox": hitbox })
+func _on_hurtbox_3d_hit_taken(hitbox_taken: Hitbox3D) -> void:
+	fsm.change_state(PlayerHurt, { "hitbox": hitbox_taken })
 
 
 func _on_invincibility_module_finished() -> void:
 	flicker.disable()
+
+
+func _on_attack_module_finished() -> void:
+	hitbox.disable()
