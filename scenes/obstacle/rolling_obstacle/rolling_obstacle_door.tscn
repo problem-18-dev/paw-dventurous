@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cqt2brq32ejgc"]
+
+[ext_resource type="Script" uid="uid://j2i6l4yaa1gl" path="res://scenes/obstacle/rolling_obstacle/rolling_obstacle_door.gd" id="1_tl0nv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n340e"]
+resource_local_to_scene = true
+albedo_color = Color(0.5096612, 0.2892726, 0.08891272, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1xhu4"]
+material = SubResource("StandardMaterial3D_n340e")
+size = Vector3(1.5, 0.05, 0.9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tl0nv"]
+size = Vector3(1.5, 0.05, 0.75)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lr81m"]
+size = Vector3(1.5, 1.2, 0.75)
+
+[node name="RollingObstacleDoor" type="Node3D" unique_id=422188200]
+script = ExtResource("1_tl0nv")
+
+[node name="Door" type="StaticBody3D" parent="." unique_id=391148679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, 0, 0)
+collision_layer = 0
+collision_mask = 0
+
+[node name="DoorMesh" type="MeshInstance3D" parent="Door" unique_id=341514631]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, -0.375, 0, 0)
+mesh = SubResource("BoxMesh_1xhu4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door" unique_id=1096604093]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, -0.375, 0, 0)
+shape = SubResource("BoxShape3D_tl0nv")
+
+[node name="TriggerArea" type="Area3D" parent="." unique_id=1045715290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, 0, 0)
+collision_layer = 0
+collision_mask = 32
+input_ray_pickable = false
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="TriggerArea" unique_id=942414078]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, -0.37466946, 0, 0)
+shape = SubResource("BoxShape3D_lr81m")
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="." method="_on_trigger_area_body_exited"]

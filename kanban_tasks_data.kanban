@@ -311,6 +311,18 @@
 				{
 					"details": "Obstacle damages if player struck",
 					"done": false
+				},
+				{
+					"details": "Obstacle re-uses turning enemy",
+					"done": false
+				},
+				{
+					"details": "Left door opens and closes",
+					"done": false
+				},
+				{
+					"details": "Right door opens and closes",
+					"done": false
 				}
 			]
 		},
