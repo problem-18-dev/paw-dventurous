@@ -1,8 +1,8 @@
 class_name PlayerAirJump
 extends PlayerAir
 
-const JUMP_FORCE := 4.0
-const JUMP_CUT_DIVIDER := 0.7
+const JUMP_HEIGHT := 0.8
+const JUMP_CUT_MULTIPLIER := 0.7
 const DESTROYABLE_HIT_DOT := 0.8
 
 
@@ -10,14 +10,14 @@ func enter(data := { }) -> void:
 	player.jump_input_buffer.settle()
 	player.model.jump()
 	var force_strength: float = data.get("force", 1.0)
-	player.velocity.y = JUMP_FORCE * force_strength
+	player.velocity.y = sqrt(2 * player.get_gravity().length() * JUMP_HEIGHT * force_strength)
 
 
 func _check_changes() -> void:
 	_check_collisions()
 
-	if Input.is_action_just_released(&"jump"):
-		player.velocity.y *= JUMP_CUT_DIVIDER
+	if Input.is_action_just_released(&"jump") and player.velocity.y > 0:
+		player.velocity.y *= JUMP_CUT_MULTIPLIER
 		return
 
 	if player.velocity.y < 0:

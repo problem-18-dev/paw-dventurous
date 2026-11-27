@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://bqq2gbqrrax04"]
+[gd_scene format=3 uid="uid://djvendvo7uw4c"]
 
-[ext_resource type="PackedScene" uid="uid://b7ugca3j4s6fi" path="res://scenes/enemy/enemy.tscn" id="1_1mbfd"]
-[ext_resource type="PackedScene" uid="uid://coj7g664wteod" path="res://scenes/player/player.tscn" id="2_8tjg2"]
+[ext_resource type="PackedScene" uid="uid://coj7g664wteod" path="res://scenes/player/player.tscn" id="1_uq3ca"]
+[ext_resource type="PackedScene" uid="uid://btf186ism7qkv" path="res://scenes/enemy/flippable_enemy/flippable_enemy.tscn" id="2_ukv0r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1mbfd"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -53,12 +53,17 @@ collision_layer = 2
 collision_mask = 0
 size = Vector3(12, 0.1, 12)
 
-[node name="Enemy" parent="." unique_id=1548095246 instance=ExtResource("1_1mbfd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1000001, 0.20092764, 3)
-positions = Array[Vector3]([Vector3(-2, 0.541, 1.6), Vector3(-2, -0.169, -1.6), Vector3(2, -0.159, -1.6), Vector3(2, 0.786, 1.6)])
-
-[node name="Player" parent="." unique_id=1638800477 instance=ExtResource("2_8tjg2")]
+[node name="Player" parent="." unique_id=1638800477 instance=ExtResource("1_uq3ca")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.049999952, 3.7149568)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=532382504]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 2.1, 5.3)
+
+[node name="FlippableEnemy" parent="." unique_id=1548095246 instance=ExtResource("2_ukv0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20092759, 0)
+
+[node name="Marker3D" type="Marker3D" parent="FlippableEnemy" unique_id=1721402490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0, 0)
+
+[node name="Marker3D2" type="Marker3D" parent="FlippableEnemy" unique_id=1564166083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9, 0, 0)

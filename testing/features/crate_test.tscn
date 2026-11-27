@@ -25,23 +25,26 @@ shadow_enabled = true
 environment = SubResource("Environment_mjdww")
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=744609515]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -2)
 use_collision = true
 collision_layer = 2
 collision_mask = 0
 size = Vector3(7, 0.1, 8)
 
 [node name="Player" parent="." unique_id=1638800477 instance=ExtResource("1_x6dqf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05000007, 0)
-
-[node name="Crate" parent="." unique_id=703298551 instance=ExtResource("2_wq7k3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -1)
-
-[node name="Crate2" parent="." unique_id=824781050 instance=ExtResource("2_wq7k3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.19999993, -1)
-
-[node name="Crate3" parent="." unique_id=1863976503 instance=ExtResource("2_wq7k3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.70000005, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06249997, 0)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=648795036]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 2, 1)
+
+[node name="Crate" parent="." unique_id=703298551 instance=ExtResource("2_wq7k3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17500025, -1)
+
+[node name="Crate2" parent="." unique_id=912474384 instance=ExtResource("2_wq7k3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, -1)
+
+[node name="Crate5" parent="." unique_id=1741854101 instance=ExtResource("2_wq7k3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.87499994, -1)
+
+[node name="Crate6" parent="." unique_id=1130981019 instance=ExtResource("2_wq7k3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3000001, 1.2249999, -1)

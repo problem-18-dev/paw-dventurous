@@ -1,8 +1,8 @@
 class_name PlayerWalk
 extends PlayerState
 
-const SPEED := 3.5
-const ACCELERATION := SPEED / 0.2
+const SPEED := 3.25
+const ACCELERATION := SPEED / 0.15
 const DECELERATION := SPEED / 0.1
 
 

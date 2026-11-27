@@ -11,7 +11,6 @@
 			"uuid": "eaa0e386-fe39-4799-9d2a-a43397b8cd9d",
 			"title": "Todo",
 			"tasks": [
-				"021a9fd2-46d0-4f08-bc77-a558c6c82145",
 				"1b40ef6c-ea68-4663-8540-301835b571d5",
 				"6478e45c-d78e-42c3-83d7-0508fa771d44",
 				"f9ed828c-bbed-4134-8bc1-d9d16b19ca9d"
@@ -20,7 +19,9 @@
 		{
 			"uuid": "7e6565ca-d0de-4825-aba2-3020d90d1aad",
 			"title": "Doing",
-			"tasks": []
+			"tasks": [
+				"021a9fd2-46d0-4f08-bc77-a558c6c82145"
+			]
 		},
 		{
 			"uuid": "8d19d83f-7fa8-42b9-8677-5fbf70a6b41b",
@@ -306,7 +307,7 @@
 			"steps": [
 				{
 					"details": "Obstacle moves between left and right",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Obstacle damages if player struck",
@@ -314,15 +315,15 @@
 				},
 				{
 					"details": "Obstacle re-uses turning enemy",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Left door opens and closes",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Right door opens and closes",
-					"done": false
+					"done": true
 				}
 			]
 		},

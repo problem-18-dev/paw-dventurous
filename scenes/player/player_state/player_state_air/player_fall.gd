@@ -29,7 +29,7 @@ func _check_collisions() -> bool:
 		if Vector3.UP.dot(normal) < VALID_BOUNCE_THRESHOLD:
 			continue
 
-		if collider is Enemy:
+		if collider is FlippableEnemy:
 			collider.flip()
 			return true
 

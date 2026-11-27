@@ -17,9 +17,9 @@
 radius = 0.2
 height = 0.63750005
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qek5x"]
-radius = 0.22
-height = 0.6
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ugbui"]
+radius = 0.2
+height = 0.63750005
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fm80t"]
 radius = 0.4
@@ -43,7 +43,7 @@ ray_cast_mask = 50
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox3D" unique_id=1269734856]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33921483, 0)
-shape = SubResource("CapsuleShape3D_qek5x")
+shape = SubResource("CapsuleShape3D_ugbui")
 debug_color = Color(0, 1, 0.2, 1)
 
 [node name="Hitbox3D" parent="." unique_id=206649358 instance=ExtResource("5_je7p5")]

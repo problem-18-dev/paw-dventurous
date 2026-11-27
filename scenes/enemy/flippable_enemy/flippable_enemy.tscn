@@ -1,35 +1,36 @@
-[gd_scene format=3 uid="uid://b7ugca3j4s6fi"]
+[gd_scene format=3 uid="uid://btf186ism7qkv"]
 
-[ext_resource type="PackedScene" uid="uid://cvejobxnu4ug1" path="res://scenes/common/components/node/state_machine/state_machine.tscn" id="1_4a83h"]
-[ext_resource type="Script" uid="uid://csmkgvxehm3n3" path="res://scenes/enemy/enemy.gd" id="1_40wdo"]
-[ext_resource type="PackedScene" uid="uid://cfjgu7jniagm7" path="res://scenes/common/components/3d/hurtbox_3d/hurtbox_3d.tscn" id="2_gl05p"]
-[ext_resource type="PackedScene" uid="uid://vfgdrpcc3buk" path="res://scenes/common/components/3d/turn_toward_3d/turn_toward_3d.tscn" id="4_tjssy"]
-[ext_resource type="PackedScene" uid="uid://dxtmtebfqe5cj" path="res://scenes/common/components/3d/hitbox_3d/hitbox_3d.tscn" id="5_gl05p"]
+[ext_resource type="Script" uid="uid://bx2hmgcbdrd14" path="res://scenes/enemy/flippable_enemy/flippable_enemy.gd" id="1_xaaab"]
+[ext_resource type="PackedScene" uid="uid://cfjgu7jniagm7" path="res://scenes/common/components/3d/hurtbox_3d/hurtbox_3d.tscn" id="2_5mo3p"]
+[ext_resource type="PackedScene" uid="uid://dxtmtebfqe5cj" path="res://scenes/common/components/3d/hitbox_3d/hitbox_3d.tscn" id="3_ny4s0"]
+[ext_resource type="PackedScene" uid="uid://vfgdrpcc3buk" path="res://scenes/common/components/3d/turn_toward_3d/turn_toward_3d.tscn" id="4_ghigf"]
+[ext_resource type="PackedScene" uid="uid://cvejobxnu4ug1" path="res://scenes/common/components/node/state_machine/state_machine.tscn" id="5_m557i"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gl05p"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xaaab"]
+albedo_color = Color(0.6333567, 0.6867939, 0.8142171, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_cwlon"]
-material = SubResource("StandardMaterial3D_gl05p")
+material = SubResource("StandardMaterial3D_xaaab")
 top_radius = 0.35
 bottom_radius = 0.35
 height = 0.2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7ty8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5mo3p"]
 albedo_color = Color(0.24115604, 0.24115604, 0.24115601, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_n340e"]
-material = SubResource("StandardMaterial3D_c7ty8")
+material = SubResource("StandardMaterial3D_5mo3p")
 top_radius = 0.05
 bottom_radius = 0.05
 height = 0.05
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tjssy"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ny4s0"]
 albedo_color = Color(1, 0, 0, 1)
 emission_enabled = true
 emission = Color(1, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_tjssy"]
-material = SubResource("StandardMaterial3D_tjssy")
+material = SubResource("StandardMaterial3D_ny4s0")
 size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tjssy"]
@@ -145,12 +146,11 @@ _data = {
 &"flip": SubResource("Animation_gl05p")
 }
 
-[node name="Enemy" type="CharacterBody3D" unique_id=1548095246]
+[node name="FlippableEnemy" type="CharacterBody3D" unique_id=1548095246]
 collision_layer = 32
 collision_mask = 2
 input_ray_pickable = false
-script = ExtResource("1_40wdo")
-speed = 2.5
+script = ExtResource("1_xaaab")
 metadata/_edit_group_ = true
 
 [node name="Model" type="Node3D" parent="." unique_id=1388599461]
@@ -179,7 +179,7 @@ mesh = SubResource("BoxMesh_tjssy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02592773, 0)
 shape = SubResource("CylinderShape3D_tjssy")
 
-[node name="Hurtbox3D" parent="." unique_id=433787464 instance=ExtResource("2_gl05p")]
+[node name="Hurtbox3D" parent="." unique_id=433787464 instance=ExtResource("2_5mo3p")]
 collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox3D" unique_id=1718963365]
@@ -187,17 +187,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.026250005, 0)
 shape = SubResource("CylinderShape3D_cwlon")
 debug_color = Color(0, 1, 0.26666668, 1)
 
-[node name="Hitbox3D" parent="." unique_id=206649358 instance=ExtResource("5_gl05p")]
+[node name="Hitbox3D" parent="." unique_id=206649358 instance=ExtResource("3_ny4s0")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox3D" unique_id=952086879]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.007666016, 0)
 shape = SubResource("CylinderShape3D_gl05p")
 debug_color = Color(1, 0, 0.015686275, 1)
 
-[node name="TurnToward3D" parent="." unique_id=1642116734 node_paths=PackedStringArray("target") instance=ExtResource("4_tjssy")]
+[node name="TurnToward3D" parent="." unique_id=1642116734 node_paths=PackedStringArray("target") instance=ExtResource("4_ghigf")]
 target = NodePath("..")
 
-[node name="StateMachine" parent="." unique_id=1762997490 instance=ExtResource("1_4a83h")]
+[node name="StateMachine" parent="." unique_id=1762997490 instance=ExtResource("5_m557i")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=515504055]
 callback_mode_process = 0

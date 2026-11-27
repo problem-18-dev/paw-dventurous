@@ -1,7 +1,13 @@
+@tool
 class_name Crate
 extends Destroyable
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+
+func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
 
 
 ## Animates bounce.
@@ -9,7 +15,7 @@ func bounce() -> void:
 	animation_player.play(&"bounce")
 
 
-## Calls [method destroy]
+## Handles being hit, i.e. by an attack.
 func hit() -> void:
 	destroy()
 

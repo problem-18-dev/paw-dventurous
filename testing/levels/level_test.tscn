@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dhwevqilw172s" path="res://scenes/level/level_finish/finish_area.tscn" id="7_x2yfg"]
 [ext_resource type="Resource" uid="uid://cwu5imt73klx3" path="res://resources/pickuppable_resource/dog_treat_data.tres" id="8_ugt1x"]
 [ext_resource type="Resource" uid="uid://cy0r34nqlorpw" path="res://resources/pickuppable_resource/tennis_ball_data.tres" id="9_ugt1x"]
-[ext_resource type="PackedScene" uid="uid://b7ugca3j4s6fi" path="res://scenes/enemy/enemy.tscn" id="10_v71sh"]
+[ext_resource type="PackedScene" uid="uid://btf186ism7qkv" path="res://scenes/enemy/flippable_enemy/flippable_enemy.tscn" id="10_v71sh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2741c"]
 
@@ -203,9 +203,17 @@ data = ExtResource("8_ugt1x")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.425, -5.6)
 data = ExtResource("9_ugt1x")
 
-[node name="Enemy" parent="EnemySpawners" parent_id_path=PackedInt32Array(1669078308) index="0" unique_id=1548095246 instance=ExtResource("10_v71sh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.276, -21.5)
-positions = Array[Vector3]([Vector3(2.5, 0.276, -21.5), Vector3(-2.5, 0.276, -21.5)])
+[node name="FlippableEnemy" parent="EnemySpawners" parent_id_path=PackedInt32Array(1669078308) index="0" unique_id=1548095246 instance=ExtResource("10_v71sh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27592772, -23)
+
+[node name="Marker3D" type="Marker3D" parent="EnemySpawners/FlippableEnemy" index="7" unique_id=386561624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6000001, 0, 0)
+
+[node name="Marker3D2" type="Marker3D" parent="EnemySpawners/FlippableEnemy" index="8" unique_id=1050312339]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0, 0)
+
+[node name="Marker3D3" type="Marker3D" parent="EnemySpawners/FlippableEnemy" index="9" unique_id=1687391016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.099999905, 0, 1.7000008)
 
 [node name="LevelFinishArea" parent="." index="9" unique_id=1430603686 instance=ExtResource("7_x2yfg")]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -1.785894e-06, 0.25, -26.10955)
