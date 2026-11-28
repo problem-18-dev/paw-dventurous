@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://0f8gg3x8cdoc"]
 
-[ext_resource type="PackedScene" uid="uid://cqt2brq32ejgc" path="res://scenes/triggers/door/door.tscn" id="1_hp4f0"]
-[ext_resource type="PackedScene" uid="uid://e06bqtr02fdp" path="res://scenes/enemy/patrolling_enemy/patrolling_enemy.tscn" id="2_xl85i"]
+[ext_resource type="PackedScene" uid="uid://cqt2brq32ejgc" path="res://scenes/triggers/door/door.tscn" id="1_xiv0n"]
+[ext_resource type="PackedScene" uid="uid://e06bqtr02fdp" path="res://scenes/enemy/patrolling_enemy/patrolling_enemy.tscn" id="2_wr1dm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hhpsl"]
-albedo_color = Color(0.86235183, 0.8601497, 0.7007717, 1)
+albedo_color = Color(0.1423383, 0.07523269, 0.008029442, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_n340e"]
 material = SubResource("StandardMaterial3D_hhpsl")
@@ -15,13 +15,13 @@ size = Vector3(14.1, 0.25, 2)
 
 [node name="SweepingObstacle" type="Node3D" unique_id=1755505629]
 
-[node name="LeftDoor" parent="." unique_id=422188200 instance=ExtResource("1_hp4f0")]
+[node name="LeftDoor" parent="." unique_id=422188200 instance=ExtResource("1_xiv0n")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.45, 0.875, 0.5)
 
-[node name="RightDoor" parent="." unique_id=1338925622 instance=ExtResource("1_hp4f0")]
+[node name="RightDoor" parent="." unique_id=1338925622 instance=ExtResource("1_xiv0n")]
 transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, 3.45, 0.875, -0.5)
 
-[node name="PatrollingEnemy" parent="." unique_id=1548095246 instance=ExtResource("2_xl85i")]
+[node name="PatrollingEnemy" parent="." unique_id=1548095246 instance=ExtResource("2_wr1dm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12504774, 0)
 
 [node name="Marker3D" type="Marker3D" parent="PatrollingEnemy" unique_id=964950774]

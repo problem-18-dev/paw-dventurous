@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://ctckt3n68fvvo"]
+
+[ext_resource type="PackedScene" uid="uid://coj7g664wteod" path="res://scenes/player/player.tscn" id="1_x6dqf"]
+[ext_resource type="PackedScene" uid="uid://ms3rqvr18k01" path="res://scenes/bounceable/crate/life_crate/life_crate.tscn" id="2_toj2f"]
+[ext_resource type="PackedScene" uid="uid://ckqs2fps1ajal" path="res://scenes/bounceable/crate/treat_crate/treat_crate.tscn" id="3_ko2rn"]
+[ext_resource type="PackedScene" uid="uid://bphujvjxkfl20" path="res://scenes/bounceable/crate/normal_crate/normal_crate.tscn" id="4_aumt6"]
+[ext_resource type="PackedScene" uid="uid://11fyiars3brb" path="res://scenes/bounceable/crate/explosive_crate/explosive_crate.tscn" id="5_d1ght"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_37hpd"]
+
+[sub_resource type="Sky" id="Sky_xx76l"]
+sky_material = SubResource("ProceduralSkyMaterial_37hpd")
+
+[sub_resource type="Environment" id="Environment_mjdww"]
+background_mode = 2
+sky = SubResource("Sky_xx76l")
+
+[node name="CrateTest" type="Node3D" unique_id=1797751173]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1919620745]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.935833, 0.8488751, 0.7619026, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=679320059]
+environment = SubResource("Environment_mjdww")
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=744609515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -2)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(7, 0.1, 8)
+
+[node name="Player" parent="." unique_id=1638800477 instance=ExtResource("1_x6dqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46250004, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=648795036]
+transform = Transform3D(1, 0, 0, 0, 0.86602545, 0.5, 0, -0.5, 0.86602545, 0, 1.8, 1.2)
+
+[node name="LifeCrate" parent="." unique_id=1006582603 instance=ExtResource("2_toj2f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 5.9604645e-08, -2.5)
+bounce_offset = Vector3(0.1, -0.1, 0.1)
+
+[node name="TreatCrate" parent="." unique_id=1975157355 instance=ExtResource("3_ko2rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 5.9604645e-08, -2.5)
+bounce_offset = Vector3(0.1, -0.1, 0.1)
+
+[node name="TreatCrate2" parent="." unique_id=1498927364 instance=ExtResource("3_ko2rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.7500001, -2.5)
+bounce_offset = Vector3(0.1, -0.1, 0.1)
+
+[node name="NormalCrate" parent="." unique_id=1325033798 instance=ExtResource("4_aumt6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 5.9604645e-08, -2.5000002)
+bounce_offset = Vector3(0.1, -0.1, 0.1)
+
+[node name="ExplosiveCrate" parent="." unique_id=1768169194 instance=ExtResource("5_d1ght")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 5.9604645e-08, -2.5000002)
+
+[node name="ExplosiveCrate2" parent="." unique_id=480033517 instance=ExtResource("5_d1ght")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.7499999, -2.5000002)

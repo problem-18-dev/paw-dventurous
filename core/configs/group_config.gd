@@ -5,3 +5,4 @@ extends Object
 
 const PLAYER := &"player"
 const DESTROYABLE := &"destroyable"
+const BOUNCEABLE := &"bounceable"

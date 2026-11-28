@@ -12,6 +12,7 @@
 			"title": "Todo",
 			"tasks": [
 				"1b40ef6c-ea68-4663-8540-301835b571d5",
+				"c661f0a9-9d98-44d2-be3a-60e740f04de5",
 				"6478e45c-d78e-42c3-83d7-0508fa771d44",
 				"f9ed828c-bbed-4134-8bc1-d9d16b19ca9d"
 			]
@@ -28,7 +29,11 @@
 			"title": "Done",
 			"tasks": [
 				"ff2ac180-b4d9-4d77-9885-94bc113a81b9",
+				"4bfcea5c-5bc8-4b41-a7ae-70070650dc27",
+				"beda107f-c28f-4748-a55f-705d42c25e1a",
+				"92f6f8c2-b5d1-4d4c-bf8b-deff9b63ab8b",
 				"cfa4bf78-4bf6-4cff-9744-d7c483a7cca4",
+				"7d656d49-b9dd-47e3-9ab9-6a816a9cb6f1",
 				"07fdbf69-07b4-4d78-9498-650e5caf3028",
 				"a5c0de8c-b02b-4266-839b-ea364e96d3e9",
 				"c486e23d-2474-46ba-be59-88b13cdd8857",
@@ -346,6 +351,48 @@
 					"done": false
 				}
 			]
+		},
+		{
+			"uuid": "beda107f-c28f-4748-a55f-705d42c25e1a",
+			"title": "[Feat] Normal crate",
+			"description": "",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": []
+		},
+		{
+			"uuid": "92f6f8c2-b5d1-4d4c-bf8b-deff9b63ab8b",
+			"title": "[Feat] Treat crate",
+			"description": "",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": []
+		},
+		{
+			"uuid": "4bfcea5c-5bc8-4b41-a7ae-70070650dc27",
+			"title": "[Feat] Explosive crate",
+			"description": "",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": []
+		},
+		{
+			"uuid": "7d656d49-b9dd-47e3-9ab9-6a816a9cb6f1",
+			"title": "[Feat] Life crate",
+			"description": "",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": []
+		},
+		{
+			"uuid": "c661f0a9-9d98-44d2-be3a-60e740f04de5",
+			"title": "[Feat] Checkpoints",
+			"description": "",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": []
+		},
+		{
+			"uuid": "16b9e90d-4cd8-49d8-b246-44555f290f84",
+			"title": "New task",
+			"description": "",
+			"category": "26929272-0dbe-4941-9cf2-829cf0257dce",
+			"steps": []
 		}
 	],
 	"layout": {

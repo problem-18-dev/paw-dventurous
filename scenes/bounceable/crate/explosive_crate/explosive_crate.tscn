@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://11fyiars3brb"]
+
+[ext_resource type="PackedScene" uid="uid://c24pmgimlw623" path="res://scenes/bounceable/crate/crate.tscn" id="1_xcris"]
+[ext_resource type="Script" uid="uid://dtlicd6rsc2x0" path="res://scenes/bounceable/crate/explosive_crate/explosive_crate.gd" id="2_2fkr6"]
+[ext_resource type="AnimationLibrary" uid="uid://b6catfgidyx5t" path="res://resources/animation_player_resource/crate_animations.res" id="2_qoow7"]
+[ext_resource type="Texture2D" uid="uid://dldkuvyub64kh" path="res://assets/prototype/checkboard.png" id="3_1uoja"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1uoja"]
+resource_local_to_scene = true
+size = Vector3(0.35, 0.35, 0.35)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rl1u"]
+resource_local_to_scene = true
+albedo_color = Color(1, 0, 0, 1)
+albedo_texture = ExtResource("3_1uoja")
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 0.1
+uv1_triplanar = true
+
+[sub_resource type="Animation" id="Animation_1uoja"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh:surface_material_override/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4rl1u"]
+_data = {
+&"RESET": SubResource("Animation_1uoja")
+}
+
+[node name="ExplosiveCrate" unique_id=1006582603 instance=ExtResource("1_xcris")]
+script = ExtResource("2_2fkr6")
+
+[node name="Mesh" parent="." index="0" unique_id=469406888]
+mesh = SubResource("BoxMesh_1uoja")
+surface_material_override/0 = SubResource("StandardMaterial3D_4rl1u")
+
+[node name="TimeLabels" type="Node3D" parent="." index="3" unique_id=805510123]
+
+[node name="BackLabel" type="Label3D" parent="TimeLabels" index="0" unique_id=234187921]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0.17581908)
+double_sided = false
+text = "3"
+
+[node name="LeftLabel" type="Label3D" parent="TimeLabels" index="1" unique_id=599094676]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.176, 0.2, 0)
+double_sided = false
+text = "3"
+
+[node name="FrontLabel" type="Label3D" parent="TimeLabels" index="2" unique_id=691641955]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.2, -0.176)
+double_sided = false
+text = "3"
+
+[node name="RightLabel" type="Label3D" parent="TimeLabels" index="3" unique_id=529960522]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 0.176, 0.2, 0)
+double_sided = false
+text = "3"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=1886773593]
+libraries/ = SubResource("AnimationLibrary_4rl1u")
+libraries/crate_animations = ExtResource("2_qoow7")
+
+[node name="TriggerTimer" type="Timer" parent="." index="5" unique_id=1782602601]
+process_callback = 0
+
+[connection signal="hit_taken" from="Hurtbox3D" to="." method="_on_hurtbox_3d_hit_taken"]
+[connection signal="timeout" from="TriggerTimer" to="." method="_on_trigger_timer_timeout"]

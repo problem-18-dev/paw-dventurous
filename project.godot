@@ -106,7 +106,7 @@ debug_quit={
 3d_physics/layer_3="player hurtbox"
 2d_physics/layer_4="hitbox"
 3d_physics/layer_4="enemy hurtbox"
-3d_physics/layer_5="destroyable hurtbox"
+3d_physics/layer_5="bounceable hurtbox"
 3d_physics/layer_6="enemy"
 3d_physics/layer_7="destroyable"
 

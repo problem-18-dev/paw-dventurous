@@ -29,24 +29,16 @@ func _check_collisions() -> bool:
 		if Vector3.UP.dot(normal) < VALID_BOUNCE_THRESHOLD:
 			continue
 
-		if collider is FlippableEnemy:
-			collider.flip()
-			return true
-
-		if collider is Destroyable:
-			collider.bounce()
-		else:
-			continue
-
-		should_bounce = true
+		if collider is Bounceable:
+			collider.hit()
+			return collider.can_bounce()
 
 	return should_bounce
 
 
-# TODO: Improve lesser force provide towards jump state.
 func _bounce() -> void:
 	if Input.is_action_pressed(&"jump"):
-		finished.emit(PlayerAirJump, { "force": 1.1 })
+		finished.emit(PlayerAirJump, { "force": PlayerAirJump.STRONG_BOUNCE_FORCE })
 		return
 
-	finished.emit(PlayerAirJump, { "force": 0.7 })
+	finished.emit(PlayerAirJump, { "force": PlayerAirJump.WEAK_BOUNCE_FORCE })

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bphujvjxkfl20"]
+
+[ext_resource type="PackedScene" uid="uid://c24pmgimlw623" path="res://scenes/bounceable/crate/crate.tscn" id="1_3afe2"]
+[ext_resource type="Script" uid="uid://bvjac5o3oi703" path="res://scenes/bounceable/crate/normal_crate/normal_crate.gd" id="1_6n8bw"]
+[ext_resource type="Texture2D" uid="uid://dldkuvyub64kh" path="res://assets/prototype/checkboard.png" id="1_jnb3u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6n8bw"]
+resource_local_to_scene = true
+size = Vector3(0.35, 0.35, 0.35)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6n8bw"]
+albedo_color = Color(1, 0.73333335, 0.30588236, 1)
+albedo_texture = ExtResource("1_jnb3u")
+emission_enabled = true
+emission = Color(1, 0.73333335, 0.30588236, 1)
+emission_energy_multiplier = 0.1
+uv1_triplanar = true
+
+[node name="NormalCrate" unique_id=1006582603 instance=ExtResource("1_3afe2")]
+script = ExtResource("1_6n8bw")
+
+[node name="Mesh" parent="." index="0" unique_id=469406888]
+mesh = SubResource("BoxMesh_6n8bw")
+surface_material_override/0 = SubResource("StandardMaterial3D_6n8bw")
+
+[connection signal="hit_taken" from="Hurtbox3D" to="." method="_on_hurtbox_3d_hit_taken"]

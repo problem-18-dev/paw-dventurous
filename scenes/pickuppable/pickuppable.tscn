@@ -15,8 +15,8 @@ material = SubResource("StandardMaterial3D_v662p")
 radius = 0.167
 height = 0.333
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_1xhu4"]
-radius = 0.3
+[sub_resource type="SphereShape3D" id="SphereShape3D_ansm5"]
+radius = 0.2
 
 [sub_resource type="Animation" id="Animation_wvnve"]
 length = 0.001
@@ -58,15 +58,17 @@ _data = {
 
 [node name="Pickuppable" type="Node3D" unique_id=1726688979]
 script = ExtResource("1_ansm5")
+metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=277566097]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0.16690873, 0)
 mesh = SubResource("SphereMesh_hb6gs")
 
 [node name="Pickup3D" parent="." unique_id=27983292 instance=ExtResource("1_oylgv")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pickup3D" unique_id=82198865]
-shape = SubResource("SphereShape3D_1xhu4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16692707, 0)
+shape = SubResource("SphereShape3D_ansm5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1566179759]
 libraries/ = SubResource("AnimationLibrary_8ednd")

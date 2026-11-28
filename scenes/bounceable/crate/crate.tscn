@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://c24pmgimlw623"]
+
+[ext_resource type="Texture2D" uid="uid://dldkuvyub64kh" path="res://assets/prototype/checkboard.png" id="2_0ftcs"]
+[ext_resource type="Script" uid="uid://ftnulhj1u5l7" path="res://scenes/common/components/3d/hurtbox_3d/hurtbox_3d.gd" id="3_6o4yq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1xhu4"]
+resource_local_to_scene = true
+size = Vector3(0.35, 0.35, 0.35)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n340e"]
+albedo_color = Color(1, 0.7320348, 0.30527267, 1)
+albedo_texture = ExtResource("2_0ftcs")
+emission_enabled = true
+emission = Color(1, 0.73333335, 0.30588236, 1)
+emission_energy_multiplier = 0.1
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jnb3u"]
+size = Vector3(0.35, 0.35, 0.35)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1xhu4"]
+size = Vector3(0.4, 0.35, 0.4)
+
+[node name="Crate" type="AnimatableBody3D" unique_id=1006582603]
+collision_layer = 2
+collision_mask = 0
+input_ray_pickable = false
+metadata/_edit_group_ = true
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=469406888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175, 0)
+mesh = SubResource("BoxMesh_1xhu4")
+surface_material_override/0 = SubResource("StandardMaterial3D_n340e")
+
+[node name="Shape" type="CollisionShape3D" parent="." unique_id=102137990]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175, 0)
+shape = SubResource("BoxShape3D_jnb3u")
+
+[node name="Hurtbox3D" type="Area3D" parent="." unique_id=1656238333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175, 0)
+collision_layer = 16
+collision_mask = 0
+input_ray_pickable = false
+script = ExtResource("3_6o4yq")
+metadata/_custom_type_script = "uid://ftnulhj1u5l7"
+
+[node name="HurtboxShape" type="CollisionShape3D" parent="Hurtbox3D" unique_id=738520298]
+shape = SubResource("BoxShape3D_1xhu4")
+debug_color = Color(0, 1, 0.08235294, 1)
+debug_fill = false
