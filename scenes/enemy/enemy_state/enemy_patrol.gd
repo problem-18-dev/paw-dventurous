@@ -25,7 +25,7 @@ func _handle_movement(delta: float) -> void:
 	var enemy_position := Vector2(enemy.global_position.x, enemy.global_position.z)
 	var destination := Vector2(_next_position.x, _next_position.z)
 	var distance := enemy_position.distance_to(destination)
-	var snap_distance := enemy.speed * delta
+	var snap_distance := enemy.data.patrol_speed * delta
 	var is_at_position := distance < snap_distance
 
 	if is_at_position:
@@ -33,15 +33,15 @@ func _handle_movement(delta: float) -> void:
 		return
 
 	var direction := enemy_position.direction_to(destination)
-	enemy.velocity.x = direction.x * enemy.speed
-	enemy.velocity.z = direction.y * enemy.speed
+	enemy.velocity.z = direction.y * enemy.data.patrol_speed
+	enemy.velocity.x = direction.x * enemy.data.patrol_speed
 
 
 ## Snaps global position to horizontal equivalent of the next position.
 func _arrive() -> void:
 	enemy.global_position = Vector3(_next_position.x, enemy.global_position.y, _next_position.z)
 	enemy.previous_position_pointer = enemy.next_position_pointer
-	var next := -1 if enemy.reverse else 1
+	var next := -1 if enemy.data.patrol_reverse else 1
 	enemy.next_position_pointer = wrapi(
 		enemy.next_position_pointer + next,
 		0,

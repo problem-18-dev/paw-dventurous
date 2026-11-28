@@ -4,7 +4,7 @@ extends EnemyState
 const HUSS_FORCE := 15.0
 const HUSS_RANDOMIZER := 0.5
 const HUSS_HEIGHT_MIN := 1.0
-const HUSS_HEIGHT_MAX := 4.0
+const HUSS_HEIGHT_MAX := 2.0
 const HUSS_ROTATION := TAU * 2
 const DEATH_TIME := 1.0
 

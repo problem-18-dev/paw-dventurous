@@ -18,14 +18,14 @@ func _get_configuration_warnings() -> PackedStringArray:
 	return []
 
 
-## Enables hitbox.
+## Enables hitbox at end of frame.
 func enable() -> void:
-	enabled = true
+	set_deferred(&"enabled", true)
 
 
-## Disables hitbox.
+## Disables hitbox at end of frame.
 func disable() -> void:
-	enabled = false
+	set_deferred(&"enabled", false)
 
 
 func _on_area_entered(hurtbox: Hurtbox3D) -> void:

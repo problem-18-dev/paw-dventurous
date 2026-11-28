@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://e06bqtr02fdp"]
+
+[ext_resource type="Script" uid="uid://csmkgvxehm3n3" path="res://scenes/enemy/enemy.gd" id="1_gl05p"]
+[ext_resource type="Resource" uid="uid://dh5fvwqhafpag" path="res://resources/enemy_resource/normal_roomba.tres" id="2_cwlon"]
+[ext_resource type="PackedScene" uid="uid://dxtmtebfqe5cj" path="res://scenes/common/components/3d/hitbox_3d/hitbox_3d.tscn" id="3_nbhyu"]
+[ext_resource type="PackedScene" uid="uid://vfgdrpcc3buk" path="res://scenes/common/components/3d/turn_toward_3d/turn_toward_3d.tscn" id="4_13gj6"]
+[ext_resource type="PackedScene" uid="uid://cfjgu7jniagm7" path="res://scenes/common/components/3d/hurtbox_3d/hurtbox_3d.tscn" id="4_cwlon"]
+[ext_resource type="PackedScene" uid="uid://cvejobxnu4ug1" path="res://scenes/common/components/node/state_machine/state_machine.tscn" id="5_4efjx"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4efjx"]
+height = 0.27392578
+radius = 0.35
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hvxgb"]
+height = 0.3
+radius = 0.4
+
+[sub_resource type="Animation" id="Animation_tjssy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Model:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Model:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cwlon"]
+resource_name = "bounce"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Model:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.5, 0.8, 1.3), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gl05p"]
+resource_name = "flip"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Model:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.7, 0.8, 1.5), Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Model:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0.4, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cwlon"]
+_data = {
+&"RESET": SubResource("Animation_tjssy"),
+&"bounce": SubResource("Animation_cwlon"),
+&"flip": SubResource("Animation_gl05p")
+}
+
+[node name="Enemy" type="CharacterBody3D" unique_id=1548095246]
+collision_layer = 32
+collision_mask = 2
+input_ray_pickable = false
+script = ExtResource("1_gl05p")
+data = ExtResource("2_cwlon")
+metadata/_edit_group_ = true
+
+[node name="Model" type="Node3D" parent="." unique_id=1388599461]
+
+[node name="Shape" type="CollisionShape3D" parent="." unique_id=1456596784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13720931, 0)
+shape = SubResource("CylinderShape3D_4efjx")
+
+[node name="Hitbox3D" parent="." unique_id=206649358 instance=ExtResource("3_nbhyu")]
+
+[node name="HitboxShape" type="CollisionShape3D" parent="Hitbox3D" unique_id=952086879]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17, 0)
+shape = SubResource("CylinderShape3D_hvxgb")
+debug_color = Color(1, 0, 0.015686275, 1)
+
+[node name="Hurtbox3D" parent="." unique_id=433787464 instance=ExtResource("4_cwlon")]
+collision_layer = 8
+
+[node name="HurtboxShape" type="CollisionShape3D" parent="Hurtbox3D" unique_id=2125794072]
+unique_name_in_owner = true
+
+[node name="TurnToward3D" parent="." unique_id=1642116734 node_paths=PackedStringArray("target") instance=ExtResource("4_13gj6")]
+target = NodePath("..")
+
+[node name="StateMachine" parent="." unique_id=1762997490 instance=ExtResource("5_4efjx")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=428275365]
+callback_mode_process = 0
+libraries/ = SubResource("AnimationLibrary_cwlon")
+
+[connection signal="hit_taken" from="Hurtbox3D" to="." method="_on_hurtbox_3d_hit_taken"]

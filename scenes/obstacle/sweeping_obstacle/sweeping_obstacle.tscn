@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://0f8gg3x8cdoc"]
 
 [ext_resource type="PackedScene" uid="uid://cqt2brq32ejgc" path="res://scenes/triggers/door/door.tscn" id="1_xiv0n"]
-[ext_resource type="PackedScene" uid="uid://e06bqtr02fdp" path="res://scenes/enemy/patrolling_enemy/patrolling_enemy.tscn" id="2_wr1dm"]
+[ext_resource type="PackedScene" uid="uid://e06bqtr02fdp" path="res://scenes/enemy/enemy.tscn" id="2_wr1dm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hhpsl"]
 albedo_color = Color(0.1423383, 0.07523269, 0.008029442, 1)

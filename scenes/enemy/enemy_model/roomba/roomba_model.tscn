@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cu8rxxtwmebfv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gl05p"]
+albedo_color = Color(0.848814, 0.7547318, 0.69662476, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mqgsv"]
+material = SubResource("StandardMaterial3D_gl05p")
+top_radius = 0.35
+bottom_radius = 0.35
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7ty8"]
+albedo_color = Color(0.24115604, 0.24115604, 0.24115601, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t2hfo"]
+material = SubResource("StandardMaterial3D_c7ty8")
+top_radius = 0.075
+bottom_radius = 0.075
+height = 0.05
+radial_segments = 16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tjssy"]
+albedo_color = Color(1, 0, 0, 1)
+roughness = 0.8
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_t4e86"]
+material = SubResource("StandardMaterial3D_tjssy")
+size = Vector3(0.2, 0.1, 0.1)
+
+[node name="RoombaModel" type="Node3D" unique_id=741490238]
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=448504249]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.16127689, 0)
+mesh = SubResource("CylinderMesh_mqgsv")
+
+[node name="Wheel" type="MeshInstance3D" parent="." unique_id=233404044]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.20000005, 0.07464687, 0.16030921)
+mesh = SubResource("CylinderMesh_t2hfo")
+
+[node name="Wheel2" type="MeshInstance3D" parent="." unique_id=2099722375]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.19999996, 0.07464687, 0.16030921)
+mesh = SubResource("CylinderMesh_t2hfo")
+
+[node name="Wheel3" type="MeshInstance3D" parent="." unique_id=569819071]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -4.4703484e-08, 0.07464687, -0.22616369)
+mesh = SubResource("CylinderMesh_t2hfo")
+
+[node name="Light" type="MeshInstance3D" parent="." unique_id=138543805]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.20053077, -0.33263674)
+mesh = SubResource("BoxMesh_t4e86")

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://cyusu87bil55e"]
+
+[ext_resource type="PackedScene" uid="uid://cu8rxxtwmebfv" path="res://scenes/enemy/enemy_model/roomba/roomba_model.tscn" id="1_3cd5p"]
+[ext_resource type="Script" uid="uid://bk58wm7iaaktw" path="res://resources/enemy_resource/enemy_resource.gd" id="2_btylm"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_btylm"]
+height = 0.3
+radius = 0.4
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3cd5p"]
+height = 0.3
+radius = 0.45
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4efjx"]
+height = 0.27392578
+radius = 0.35
+
+[resource]
+script = ExtResource("2_btylm")
+model = ExtResource("1_3cd5p")
+shape = SubResource("CylinderShape3D_4efjx")
+shape_offset = Vector3(0, 0.13720931, 0)
+can_hurt = true
+hurtbox_shape = SubResource("CylinderShape3D_3cd5p")
+hurtbox_offset = Vector3(0, 0.17, 0)
+hitbox_shape = SubResource("CylinderShape3D_btylm")
+hitbox_offset = Vector3(0, 0.17, 0)
+metadata/_custom_type_script = "uid://bk58wm7iaaktw"

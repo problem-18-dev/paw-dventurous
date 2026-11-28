@@ -10,7 +10,7 @@ var _next_position: Vector3
 func enter(_data := { }) -> void:
 	enemy.velocity = Vector3.ZERO
 
-	if not enemy.should_move():
+	if not enemy.can_move():
 		return
 
 	_next_position = enemy.positions[enemy.next_position_pointer]

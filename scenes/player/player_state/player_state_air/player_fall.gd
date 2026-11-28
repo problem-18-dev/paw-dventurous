@@ -33,6 +33,10 @@ func _check_collisions() -> bool:
 			collider.hit()
 			return collider.can_bounce()
 
+		if collider is Enemy:
+			collider.flip()
+			return collider.can_bounce()
+
 	return should_bounce
 
 

@@ -31,13 +31,13 @@ func _on_player_attack_module_attack_requested() -> void:
 	hitbox.enable()
 
 
+func _on_attack_module_finished() -> void:
+	hitbox.disable()
+
+
 func _on_hurtbox_3d_hit_taken(hitbox_taken: Hitbox3D) -> void:
 	fsm.change_state(PlayerHurt, { "hitbox": hitbox_taken })
 
 
 func _on_invincibility_module_finished() -> void:
 	flicker.disable()
-
-
-func _on_attack_module_finished() -> void:
-	hitbox.disable()
